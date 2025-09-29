@@ -7,21 +7,23 @@ import Image from 'next/image';
 
 export default function HomePage() {
   // Carousel state
- const [currentSlide, setCurrentSlide] = useState(0);
-
   const slides = [
-    "/api/placeholder/600/400",
-    "/api/placeholder/601/400",
-    "/api/placeholder/602/400",
-    "/api/placeholder/603/400",
+    { image: "/images/pic1.jpg" },
+    { image: "/images/pic2.jpg" },
+    { image: "/images/pic3.jpg" },
+    { image: "/images/pic4.jpg" },
+    { image: "/images/pic5.jpg" },
   ];
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // auto slide
   useEffect(() => {
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000); // change slide every 4 seconds
-    return () => clearInterval(timer);
-  }, []);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   const services = [
     {
@@ -126,66 +128,89 @@ export default function HomePage() {
 
   return (
    <main className="min-h-screen">
-  <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 px-4 sm:px-6 lg:px-8">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
       {/* Left Column: Text + Buttons */}
-      <div className="space-y-6 max-w-xl">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-          Designing experiences that inspire{' '}
-          <span className="text-blue-600">love</span> and{' '}
-          <span className="text-blue-600">business growth</span>
+      <div className="text-center lg:text-left lg:pr-15">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
+          <span className="whitespace-nowrap">
+            Designing <span className="text-purple-900">experiences</span> that
+          </span>{" "}
+          <span className="whitespace-nowrap">
+            people love and <span className="text-purple-900">businesses</span>
+          </span>{" "}
+          <span className="text-purple-900">trust.</span>
         </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
-          We build modern digital solutions tailored to your needs, combining creativity with cutting-edge technology to deliver exceptional results.
-        </p>
+{/* Buttons */}
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Get Started
-          </Link>
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
-          >
-            Learn More
-          </Link>
-        </div>
-      </div>
+{/* Buttons */}
+<div className="flex flex-row gap-4 mt-6 justify-center lg:justify-start">
+  <Link
+    href="/services"
+    className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+  >
+    Get Started
+  </Link>
+  <Link
+    href="/services"
+    className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl"
+  >
+    Learn More
+  </Link>
+</div>
 
-      {/* Right Column: Static Image */}
-      <div className="relative h-96 rounded-2xl shadow-2xl overflow-hidden">
-        <Image
-          src="/images/pic 6.jpg"
-          alt="Hero Image"
-          fill
-          className="object-cover rounded-2xl"
-        />
-        <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
-      </div>
-    </div>
-
-    {/* Full-Width Carousel under text and right image */}
-    <div className="mt-12 relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+</div>
+      {/* Right Column: Image */}
+      <div className=" flex-1 flex justify-center lg:justify-end lg:ml-12">
+        <div className="relative w-full max-w-md h-64 sm:h-72 md:h-80 lg:h-72 rounded-2xl shadow-2xl overflow-hidden">
           <Image
-            src="/images/pic 2.jpg"
-            alt={`Slide ${index + 1}`}
+            src="/images/image3.jpg"
+            alt="Hero Image"
             fill
-            className="object-cover w-full h-full rounded-xl"
-            sizes="100vw"
+            className="object-cover"
+            priority
           />
+          {/* Optional overlay */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
-      ))}
+      </div>
+      </div>
+
+   <div className="mt-12 relative w-full max-w-6xl mx-auto overflow-hidden rounded-xl shadow-lg">
+      {/* Slides Wrapper */}
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 h-64 sm:h-80 md:h-96 relative p-2"
+          >
+            <Image
+              src="/images/image5.jpg"
+              alt={`Slide ${index + 1}`}
+              fill
+              className="object-cover rounded-xl"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dots Navigation */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full ${
+              index === currentSlide ? "bg-blue-600" : "bg-gray-300"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   </section>
 
@@ -196,9 +221,8 @@ export default function HomePage() {
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        We offer comprehensive digital solutions to help your business thrive in the modern world
-      </p>
+     
+      
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -212,12 +236,8 @@ export default function HomePage() {
           <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
           <Link
             href="/services"
-            className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
           >
-            Learn More
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+           
           </Link>
         </div>
       ))}
@@ -227,173 +247,90 @@ export default function HomePage() {
 
       {/* Why Choose Us Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Why Flowsate?</h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Team</h3>
-                    <p className="text-gray-600">Our experienced professionals bring years of expertise in cutting-edge technologies and industry best practices.</p>
-                  </div>
-                </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Why Flowsate?</h2>
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+    {/* Left column: Image */}
+    <div className="relative w-full h-64 lg:h-[350px] rounded-2xl overflow-hidden shadow-lg">
+      <Image
+        src="/images/image1.jpg" // ✅ replace with your image
+        alt="Why Flowsate"
+        fill
+        className="object-cover"
+        priority
+      />
+    </div>
+  <div>
+    {/* Right column: Text */}
+  
+     <div className="flex flex-col justify-center space-y-6">
+        {/* Point 1 */}
+      <div className="flex items-start">
+  <div>
+   
+    <p className="text-gray-900  font-bold lg:font-semibold">
+    At Flowsate, we bring together experts from different areas of 
+    tech to deliver solutions that are modern, reliable and built to scale.
+    </p>
+  </div>
+</div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Tailored Solutions</h3>
-                    <p className="text-gray-600">We don't believe in one-size-fits-all. Every solution is customized to meet your specific business needs and goals.</p>
-                  </div>
-                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Results</h3>
-                    <p className="text-gray-600">Our track record speaks for itself with successful projects that have driven real business growth for our clients.</p>
-                  </div>
-                </div>
+        {/* Point 2 */}
+       <div className="flex items-start">
+  <div>
+   
+    <p className="text-gray-600">
+     <span className="font-bold lg:font-semibold">Cross-disciplinary Expertise</span>  - A team of designers, developers, and strategist working together
+      to deliver end-to-end solutions.
+    </p>
+  </div>
+</div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Ongoing Support</h3>
-                    <p className="text-gray-600">We're with you every step of the way, providing continuous support and maintenance to ensure your success.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+{/* point 3 */}
+   <div className="flex items-start">
+  <div>
+   
+    <p className="text-gray-600">
+     <span className="font-bold lg:font-semibold">proven Reliability</span>  - Transparent process, clear
+       communication, and results you can trust
+    </p>
+  </div>
+</div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl p-8 text-white">
-                <div className="space-y-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold">Ready to Transform Your Business?</h3>
-                  <p className="text-blue-100">Join hundreds of satisfied clients who have accelerated their growth with our innovative solutions.</p>
-                  <div className="grid grid-cols-2 gap-4 pt-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold">500+</div>
-                      <div className="text-blue-200 text-sm">Projects Completed</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold">98%</div>
-                      <div className="text-blue-200 text-sm">Client Satisfaction</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Point 4 */}
+       <div className="flex items-start">
+  <div>
+   
+    <p className="text-gray-600">
+     <span className="font-bold lg:font-semibold">Tailored Solutions</span> Tailored Solutions- We design and build with your unique business
+       needs in mind,not just templates.
+    </p>
+  </div>
+</div>
+
+
+        {/* Point 5 */}
+        <div className="flex items-start">
+        
+          <div>
+           
+            <p className="text-gray-600">
+             <span className="font-bold lg:font-semibold"> Modern & Scalable Tech</span>- From web and mobile app to cloud
+              solutions,we use technologies that grow with your business.
+            </p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
       </section>
 
    
-      {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Why Flowsate?</h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Team</h3>
-                    <p className="text-gray-600">Our experienced professionals bring years of expertise in cutting-edge technologies and industry best practices.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Tailored Solutions</h3>
-                    <p className="text-gray-600">We don't believe in one-size-fits-all. Every solution is customized to meet your specific business needs and goals.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Results</h3>
-                    <p className="text-gray-600">Our track record speaks for itself with successful projects that have driven real business growth for our clients.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Ongoing Support</h3>
-                    <p className="text-gray-600">We're with you every step of the way, providing continuous support and maintenance to ensure your success.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl p-8 text-white">
-                <div className="space-y-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold">Ready to Transform Your Business?</h3>
-                  <p className="text-blue-100">Join hundreds of satisfied clients who have accelerated their growth with our innovative solutions.</p>
-                  <div className="grid grid-cols-2 gap-4 pt-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold">500+</div>
-                      <div className="text-blue-200 text-sm">Projects Completed</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold">98%</div>
-                      <div className="text-blue-200 text-sm">Client Satisfaction</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+   
       {/* Featured Projects Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -412,7 +349,7 @@ export default function HomePage() {
               >
                 <div className="relative h-64">
                   <Image
-                    src={project.image}
+                    src="/images/pic 4.jpg"
                     alt={project.title}
                     fill
                     className="object-cover"
@@ -455,7 +392,7 @@ export default function HomePage() {
               >
                 <div className="flex items-center mb-6">
                   <Image
-                    src={testimonial.image}
+                    src="/images/image2.jpg"
                     alt={testimonial.name}
                     width={60}
                     height={60}
@@ -485,9 +422,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <p className="text-xl text-gray-600">
-              Ready to start your project? Get in touch with us today and let's discuss how we can help you achieve your goals.
-            </p>
+           
           </div>
 
           <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
@@ -535,10 +470,7 @@ export default function HomePage() {
                   type="submit"
                   className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
-                  Send Message
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
+                        submit                
                 </button>
               </div>
             </form>
