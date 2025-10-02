@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="text-white py-10 px-3  ">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-6 gap-6">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-6 gap-10">
         {/* Company Info */}
         <div className="md:col-span-2">
           <Image
@@ -21,7 +21,7 @@ const Footer = () => {
             and operational excellence.
           </p>
         </div>
-        <div className="md:col-span-4 grid grid-cols-4 gap-6">
+        <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {/* Services */}
           <div>
             <h3 className="text-xl font-semibold mb-3 text-black">Services</h3>
