@@ -117,7 +117,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8  sm:p-10 lg:p-15 lg:pb-0 lg:pt-0 ">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-8  sm:p-10 lg:p-15 lg:pb-0 lg:pt-0 md:p-1 ">
         <div className="order-2 md:order-1  w-full md:w-1/2 flex justify-center">
           <img
             src="/images/rafiki1.svg"
@@ -127,7 +127,7 @@ const ContactUs = () => {
         </div>
 
         <div className="order-1 md:order-2 w-full md:w-1/2 bg-white p-10 rounded-sm -mb-2 ">
-          <div className="sm:p-0 lg:p-0 sm:pr-10 lg:pr-22 lg:pb-15">
+          <div className="sm:p-0 lg:p-0 sm:pr-10 md:pb-12 lg:pr-22 lg:pb-15">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Get in touch
             </h2>
