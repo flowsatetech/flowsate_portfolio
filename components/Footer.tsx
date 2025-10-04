@@ -21,7 +21,7 @@ const Footer = () => {
             and operational excellence.
           </p>
         </div>
-        <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {/* Services */}
           <div>
             <h3 className="text-xl font-semibold mb-3 text-black">Services</h3>
