@@ -19,11 +19,11 @@ const ContactUs = () => {
         <div className="order-2 md:order-1 flex-1 w-full md:w-1/2 bg-white p-8 rounded-sm">
           <h1 className="text-3xl font-bold mb-6">Reach out to us</h1>
           <p className="text-gray-600 mb-6">
-            Fill out the form and we'll get back to you.
+            Fill out the form and we&#39;ll get back to you.
           </p>
           {state.succeeded && (
             <p className="text-green-600 mb-6">
-              ✅ Thanks for your message! We'll get back to you soon.
+              ✅ Thanks for your message! We&#39;ll get back to you soon.
             </p>
           )}
           <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
