@@ -14,11 +14,13 @@ const Header = () => {
           </div>
         </Link>
 
-        <div className="hidden xl:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <DesktopNavbar />
         </div>
 
-        <div className="xl:hidden">
+        <div 
+        className="md:hidden"
+        >
           <MobileNavbar />
         </div>
       </div>
