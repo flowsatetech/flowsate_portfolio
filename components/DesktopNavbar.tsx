@@ -15,7 +15,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex space-x-6">
+    <ul className="flex items-center  space-x-4 md:space-x-4 ">
       {links.map((link) => {
         const isActive = pathname === link.href;
         return (
