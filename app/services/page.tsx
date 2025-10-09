@@ -1,10 +1,12 @@
 import EnterpriseSolutions from '@/components/enterprise-solutions'
+import Stats from '@/components/stats'
 import React from 'react'
 
 const Services = () => {
   return (
-    <div className='flex items-center justify-center p-4'>
+    <div className='flex flex-col items-center justify-center '>
       <EnterpriseSolutions />
+      <Stats />
       </div>
   )
 }
