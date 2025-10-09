@@ -6,7 +6,7 @@ import { Calendar, Download } from "lucide-react";
 
 const EnterpriseSolutions = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex flex-col items-center justify-center text-center p-4">
       <Card className="border-[#A1E0F985] ">
         <CardContent className="flex items-center gap-2">
           <Image
