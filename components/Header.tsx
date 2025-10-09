@@ -19,7 +19,7 @@ const Header = () => {
         </div>
 
         <div 
-        className="md:hidden"
+        className="md:hidden relative z-50"
         >
           <MobileNavbar />
         </div>
