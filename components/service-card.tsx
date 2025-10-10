@@ -10,14 +10,33 @@ const ServiceCard = () => {
       {serviceCard?.map((service, index) => {
         return (
           <Card key={index} className="p-0 max-w-[651px] max-h-[695px]">
-            <CardHeader className="p-0" >
-              <div className="relative w-full h-64">
+            <CardHeader className="p-0 relative">
+              <div className="relative w-full h-70">
+                {/* Background Image */}
                 <Image
                   src={service.backgrounndImage}
                   alt={"background"}
                   fill
                   className="object-cover rounded-t-lg"
                 />
+
+                {/* Dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/30 rounded-t-lg"></div>
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
+                  {/* <h3 className="text-xl md:text-2xl font-bold text-center mb-2">
+                    Service Title
+                  </h3> */}
+                  <Image
+                    src={service.icon}
+                    width={146}
+                    height={146}
+                    alt="icon"
+                  />
+                  <p className="text-sm md:text-base text-center opacity-90 mt-4">
+                    {service.title}
+                  </p>
+                </div>
               </div>
             </CardHeader>
             <CardContent>
@@ -70,7 +89,6 @@ const ServiceCard = () => {
               </div>
             </CardContent>
             <CardFooter className="flex flex-col items-start gap-4">
-              {/* First div - aligned to left */}
               <div className="w-full">
                 <p className="text-[#343434C2] font-normal text-sm mb-2">
                   Technologies:
@@ -89,9 +107,10 @@ const ServiceCard = () => {
                 </div>
               </div>
 
-              {/* Second div - aligned to right on new line */}
               <div className="w-full flex justify-end pb-4">
-                <Button className="bg-[#5BA0D7] text-white">Learn More    →</Button>
+                <Button className="bg-[#5BA0D7] text-white">
+                  Learn More →
+                </Button>
               </div>
             </CardFooter>
           </Card>
