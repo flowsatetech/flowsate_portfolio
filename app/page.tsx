@@ -241,7 +241,7 @@ export default function CarouselSection() {
       {/* Buttons */}
       <div className="flex flex-row gap-4 mt-8 justify-center">
         <Link
-          href="/services"
+          href="/contact Us"
           className="inline-flex items-center justify-center px-8 py-4 bg-[#010066] text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Get Started
