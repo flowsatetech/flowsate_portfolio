@@ -1,6 +1,7 @@
 import Clients from '@/components/clients'
 import ComprehensiveServices from '@/components/comprehensive-services'
 import EnterpriseSolutions from '@/components/enterprise-solutions'
+import IndustryCertification from '@/components/industry-certification'
 import Stats from '@/components/stats'
 import Team from '@/components/team'
 import React from 'react'
@@ -13,6 +14,7 @@ const Services = () => {
       {/* <ComprehensiveServices /> */}
       <Clients />
       <Team />
+      <IndustryCertification />
       </div>
   )
 }
