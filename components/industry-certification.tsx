@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const IndustryCertification = () => {
   return (
-    <div className="flex flex-col item-center justify-center text-center p-4">
+    <div className="flex flex-col item-center justify-center text-center px-4 pt-10 pb-30">
       <h1 className="text-3xl md:text-5xl font-bold text-black">
         Industry Certifications & Partnerships
       </h1>
