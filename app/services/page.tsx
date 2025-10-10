@@ -2,6 +2,7 @@ import Clients from '@/components/clients'
 import ComprehensiveServices from '@/components/comprehensive-services'
 import EnterpriseSolutions from '@/components/enterprise-solutions'
 import Stats from '@/components/stats'
+import Team from '@/components/team'
 import React from 'react'
 
 const Services = () => {
@@ -11,6 +12,7 @@ const Services = () => {
       <Stats />
       {/* <ComprehensiveServices /> */}
       <Clients />
+      <Team />
       </div>
   )
 }
