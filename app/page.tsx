@@ -241,7 +241,7 @@ export default function CarouselSection() {
       {/* Buttons */}
       <div className="flex flex-row gap-4 mt-8 justify-center">
         <Link
-          href="/contact Us"
+          href="/contact"
           className="inline-flex items-center justify-center px-8 py-4 bg-[#010066] text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Get Started
@@ -266,10 +266,11 @@ export default function CarouselSection() {
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${current * (100 / visibleCards)}%)`,
-            width: `${(slides.length / visibleCards) * 100}%`,
-          }}
+         style={{
+  transform: `translateX(-${current * (100 / visibleCards)}%)`,
+  width: `${(slides.length / visibleCards) * 100}%`,
+}}
+
         >
           {slides.map((slide) => (
             <div
@@ -498,7 +499,7 @@ export default function CarouselSection() {
             <div className="w-48 h-48 rounded-xl overflow-hidden border-4 border-white shadow-md">
               <Image
                 src="/images/woman.png"
-                alt={testimonials[current].name}
+                alt="portfolio"
                 width={300}
                 height={300}            
                 className="object-cover w-full h-full"
