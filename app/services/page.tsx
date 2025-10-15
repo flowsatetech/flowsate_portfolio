@@ -12,7 +12,7 @@ const Services = () => {
     <div className='flex flex-col items-center justify-center '>
       <EnterpriseSolutions />
       <Stats />
-      {/* <ComprehensiveServices /> */}
+      <ComprehensiveServices />
       <Clients />
       <Team />
       <IndustryCertification />

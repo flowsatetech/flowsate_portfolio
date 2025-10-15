@@ -13,7 +13,7 @@ const ComprehensiveServices = () => {
           your business growth and digital transformation journey
         </p>
       </div>
-      <ServiceCard />
+      {/* <ServiceCard /> */}
     </div>
   );
 };
