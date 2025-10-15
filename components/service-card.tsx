@@ -33,7 +33,7 @@ const ServiceCard = () => {
                     height={146}
                     alt="icon"
                   />
-                  <p className="text-sm md:text-base text-center opacity-90 mt-4">
+                  <p className="text-sm md:text-3xl text-semibold text-center opacity-90 mt-4">
                     {service.title}
                   </p>
                 </div>
@@ -107,11 +107,11 @@ const ServiceCard = () => {
                 </div>
               </div>
 
-              <div className="w-full flex justify-end pb-4">
+              {/* <div className="w-full flex justify-end pb-4">
                 <Button className="bg-[#5BA0D7] text-white">
                   Learn More →
                 </Button>
-              </div>
+              </div> */}
             </CardFooter>
           </Card>
         );
