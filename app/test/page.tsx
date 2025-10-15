@@ -1,9 +1,8 @@
-import React from 'react'
+import HomeSlider from "@/components/home-slider";
 
-const page = () => {
+export default function Test() {
+
   return (
-    <div>page</div>
-  )
+    <><HomeSlider/></>
+  );
 }
-
-export default page
