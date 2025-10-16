@@ -24,14 +24,28 @@ body {
   height: 100%;
 }
 
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #040404;
+  opacity: 0.61; 
+  z-index: 1;
+  pointer-events: none;
+}
+
 .swiper-slide {
   position: relative;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   background: #444;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 80px; 
 }
 
 .image-container {
@@ -47,7 +61,6 @@ body {
   object-position: center;
 }
 
-
 .slide-content {
   position: relative;
   z-index: 2;
@@ -56,7 +69,7 @@ body {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   border-radius: 8px;
 }
 
