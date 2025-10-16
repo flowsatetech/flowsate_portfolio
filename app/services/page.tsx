@@ -16,7 +16,7 @@ const Services = () => {
       </div>
       <EnterpriseSolutions />
       <Stats />
-      {/* <ComprehensiveServices /> */}
+      <ComprehensiveServices />
       <Clients />
       <Team />
       <IndustryCertification />

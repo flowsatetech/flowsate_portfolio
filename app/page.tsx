@@ -18,17 +18,40 @@ const slides = [
   { id: 5, image: "/images/project5.jpg", title: "E-commerce" },
 ];
 
+
 export default function CarouselSection() {
+  const slides = [
+    {
+      id: 1,
+     
+      image: "/images/project.png",
+    },
+    {
+      id: 2,
+      image: "/images/tech.png",
+    },
+    {
+      id: 3,
+      image: "/images/woman.png",
+    },
+
+      {
+      id: 4,
+      image: "/images/background 2.png",
+    },
+     
+  ];
+
   const [current, setCurrent] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
 
-  // Auto-slide every 4s
+  // Auto-slide every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % (slides.length - visibleCards + 1));
     }, 4000);
     return () => clearInterval(interval);
-  }, [visibleCards]);
+  }, [visibleCards, slides.length]);
 
   // Responsive visibleCards
   useEffect(() => {
@@ -161,22 +184,19 @@ export default function CarouselSection() {
 
   const testimonials = [
     {
-      name: "Jane Doe",
-      title: "Founder at Startup X",
+      name: "Jane Doe", 
       image: "/images/Rectangle3455.png",
-      text: "Flowsate transformed our vision into a product that exceeded expectations.",
+      text: "Working with this team has been an incredible experience. Their creativity, attention to detail, and professionalism truly stand out. They understood my vision perfectly and delivered results that exceeded expectations. I highly recommend them to anyone looking for reliable, top-quality tech and design solutions that actually make an impact.",
     },
     {
       name: "favour james",
-      title: "Founder at Startup X",
       // image: "/images/Rectangle3455.png",
-      text: "Flowsate transformed our vision into a product that exceeded expectations.",
+      text: "This company went above and beyond to deliver exactly what I needed. Their communication was clear, the process was smooth, and the final outcome was exceptional. You can tell they genuinely care about quality and client satisfaction. I’m extremely impressed and would definitely work with them again!.",
     },
     {
       name: "onuora Ruth",
-      title: "Founder at Startup X",
       // image: "/images/Rectangle3455.png",
-      text: "Flowsate stans on business  .",
+      text: "Working with this team was an absolute pleasure. They truly understood my vision and turned it into something even better than I imagined. The attention to detail, creativity, and professionalism were top-notch. I highly recommend them to anyone looking for reliable and high-quality service. .",
     },
   ];
 
@@ -212,95 +232,146 @@ export default function CarouselSection() {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <main className="min-h-screen">
-      <section
-        className="relative bg-cover bg-center py-32 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundImage: "url('/images/background.png')" }} // ✅ background image
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-            <span className="whitespace-nowrap">
-              Designing <span className="text-blue-600">experiences</span> that
-            </span>{" "}
-            <span className="whitespace-nowrap">
-              people love and <span className="text-blue-600">businesses</span>
-            </span>{" "}
-            <span className="text-blue-600">trust.</span>
+  return (
+<main className="min-h-screen">
+<section className="relative py-24 px-6 lg:px-12 bg-gradient-to-tl from-[#e3e7ff] via-[#f4f6ff] to-[#f9faff] overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left side - Text */}
+        <div>
+          <p className="text-sm uppercase tracking-wide text-gray-500 mb-3">
+            Best Tech Company
+          </p>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
+          <span className="text-[#010066]"> Designing experiences that</span>{" "}
+            <span className="text-[#010066]">people love and</span> {" "}
+            <span className="text-[#010066]">businesses trust.</span>
           </h1>
 
           {/* Buttons */}
-          <div className="flex flex-row gap-4 mt-8 justify-center">
+          <div className="flex flex-row gap-4 mt-10">
             <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#010066] text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#010066] text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Get Started
             </Link>
+
             <Link
               href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border border-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-[#010066] border border-[#010066] font-semibold rounded-lg hover:bg-[#010066] hover:text-white transition-all duration-300"
             >
               Learn More
             </Link>
           </div>
         </div>
-      </section>
-      {/* carousel section */}
 
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Projects</h2>
-
-        {/* Carousel Container */}
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(-${current * (100 / visibleCards)}%)`,
-              width: `${(slides.length / visibleCards) * 100}%`,
-            }}
-          >
-            {slides.map((slide) => (
-              <div
-                key={slide.id}
-                className="flex-shrink-0 px-3"
-                style={{ flex: `0 0 ${100 / visibleCards}%` }}
-              >
-                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={slide.image} // ✅ dynamic image
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold">{slide.title}</h3>
-                  </div>
-                </div>
-              </div>
-            ))}
+        {/* Right side - Image */}
+        <div className="flex justify-center md:justify-end">
+          <div className="rounded-4xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/background 2.png" // ✅ replace this with your uploaded image path
+              alt="Team working together"
+              width={450}
+              height={400}
+              className="object-cover rounded-2x1"
+              priority
+            />
           </div>
         </div>
+      </div>
 
-        {/* Dots */}
-        <div className="flex justify-center mt-6 gap-2">
-          {Array.from({ length: slides.length - visibleCards + 1 }).map(
-            (_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === current ? "bg-blue-600" : "bg-gray-300"
-                }`}
-              />
-            )
-          )}
+      {/* Soft overlay gradient for extra depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
+    </section>
+
+
+  {/* carousel section */}
+
+      <section className="max-w-7xl mx-auto px-6 py-20">
+     
+
+      {/* Carousel Container */}
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-300 ease-in-out"
+          style={{
+            transform: `translateX(-${current * (100 / visibleCards)}%)`,
+            width: `${(slides.length / visibleCards) * 100}%`,
+          }}
+        >
+          {slides.map((slide) => (
+            <div
+              key={slide.id}
+              className="flex-shrink-0 px-4"
+              style={{ flex: `0 0 ${100 / visibleCards}%` }}
+            >
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="relative w-full h-64 md:h-80 rounded-t-xl overflow-hidden">
+                  <Image
+                    src={slide.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    
+                  </h3>
+                </div>
+              </div>
+              </div>
+            ))}
         </div>
+        </div>
+
+      {/* Dots */}
+      <div className="flex justify-center mt-8 gap-2">
+        {Array.from({ length: slides.length - visibleCards + 1 }).map(
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`w-3 h-3 rounded-full ${
+                index === current ? "bg-[#010066]" : "bg-gray-300"
+              } transition-all duration-300`}
+            />
+          )
+        )}
+      </div>
+    </section>
+
+ 
+   {/* Our Services Section */}
+<section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+     
+      
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.slice(0, 6).map((service, index) => (
+        <div
+          key={index}
+          className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+        >
+          <div className="mb-4 text-blue-600 text-4xl">{service.icon}</div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
+          <Link
+            href="/services"
+          >
+           
+          </Link>
+        </div>
+      ))}
+      </div>
+      </div>
       </section>
 
       {/* Our Services Section */}
@@ -486,15 +557,16 @@ export default function CarouselSection() {
           What Our Clients Say
         </h2>
 
-        <div className="max-w-5xl mx-auto bg-blue-900 text-white rounded-3xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center gap-8 p-8 transition-transform duration-300 hover:scale-105">
+        <div className="max-w-3xl mx-auto bg-blue-900 text-white rounded-3xl shadow-lg
+         overflow-hidden flex flex-col sm:flex-row items-center gap-8 p-8 transition-transform duration-300 hover:scale-105">
           {/* Client Image */}
           <div className="flex-shrink-0">
-            <div className="w-48 h-48 rounded-xl overflow-hidden border-4 border-white shadow-md">
+            <div className="w-70 h-60 rounded-xl overflow-hidden border-4 border-white shadow-md">
               <Image
                 src="/images/woman.png"
-                alt={testimonials[current]?.name}
-                width={300}
-                height={300}
+                alt="portfolio"
+                width={200}
+                height={200}            
                 className="object-cover w-full h-full"
               />
             </div>
@@ -502,31 +574,30 @@ export default function CarouselSection() {
 
           {/* Text Content */}
           <div
-            className={`flex-1 transition-opacity duration-500 ${
+            className={`flex-1 transition-opacity duration-100 ${
               fade ? "opacity-100" : "opacity-0"
             }`}
             aria-live="polite"
           >
-            <h3 className="text-xl font-semibold mb-1">
-              {testimonials[current]?.name}
-            </h3>
-            <p className="text-blue-200 mb-4">{testimonials[current]?.title}</p>
-            <p className="text-blue-100 leading-relaxed">
-              {testimonials[current]?.text}
-            </p>
+           {testimonials.length > 0 && testimonials[current] && (
+  <>
+    <h3 className="text-xl font-semibold mb-1">{testimonials[current].name}</h3>
+    <p className="text-blue-100 leading-relaxed">{testimonials[current].text}</p>
+  </>
+)}
 
             {/* Navigation Buttons */}
             <div className="mt-6 flex gap-4">
               <button
                 onClick={prevTestimonial}
-                className="bg-blue-700 hover:bg-blue-800 p-3 rounded-full transition"
+                className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
                 aria-label="Previous"
               >
                 ←
               </button>
               <button
                 onClick={nextTestimonial}
-                className="bg-blue-700 hover:bg-blue-800 p-3 rounded-full transition"
+                className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
                 aria-label="Next"
               >
                 →
