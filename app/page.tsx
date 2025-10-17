@@ -15,13 +15,7 @@ import icon5 from "@/public/images/icon5.png";
 
 
 
- const slides = [
-  { id: 1, image: "/images/Rectangle3455.png", title: "UI/UX Design" },
-  { id: 2, image: "/images/project2.jpg", title: "Web Development" },
-  { id: 3, image: "/images/project3.jpg", title: "Mobile App Development" },
-  { id: 4, image: "/images/project4.jpg", title: "Branding" },
-  { id: 5, image: "/images/project5.jpg", title: "E-commerce" },
-];
+
 
 
 export default function CarouselSection() {
