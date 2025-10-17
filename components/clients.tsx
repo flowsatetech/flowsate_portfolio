@@ -3,13 +3,22 @@ import ClientCard from "./client-card";
 
 const Clients = () => {
   return (
-    <div className="flex flex-col item-center justify-center text-center px-4 py-20">
-      <h1 className="text-3xl md:text-5xl font-bold text-black">What Our Clients Say</h1>
-      <p className="text-black/65 font-medium text-sm md:text-base mt-4 ">
-        Don&apos;t just take our word for it. Here&apos;s what industry leaders say about our work.
+    <section className="flex flex-col items-center justify-center text-center px-4 py-12 md:py-20">
+      {/* Heading */}
+      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black leading-tight">
+        What Our Clients Say
+      </h1>
+
+      {/* Subheading */}
+      <p className="text-black/65 font-medium text-xs sm:text-sm md:text-base mt-4 max-w-2xl">
+        Don&apos;t just take our word for it — here&apos;s what industry leaders say about our work.
       </p>
-      <ClientCard />
-    </div>
+
+      {/* Client Cards */}
+      <div className="w-full mt-10 max-w-6xl">
+        <ClientCard />
+      </div>
+    </section>
   );
 };
 
