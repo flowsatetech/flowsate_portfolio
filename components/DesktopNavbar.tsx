@@ -16,30 +16,27 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex items-center  space-x-4 md:space-x-4 ">
-      {links.map((link) => {
-        const isActive = pathname === link.href;
-        return (
-          <li key={link.name}>
-            <Link
-              href={link.href}
-              className={`px-3 py-2 rounded-md transition-colors ${
-                isActive
-                  ? "text-[#010066] font-semibold"
-                  : "text-[#414141] hover:text-[#010066]"
-              }`}
-            >
-              {link.name}
-            </Link>
-          </li>
-        );
-      })}
-      <li>
-        <Button className="text-white bg-[#010066] hover:bg-[#414141]">
-          Get Started
-        </Button>
-      </li>
-    </ul>
+    <nav>
+      <ul className="flex items-center flex-1 space-x-4 md:space-x-4 ">
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className={`px-3 py-2 rounded-md transition-colors ${
+                  isActive
+                    ? "text-[#010066] font-semibold"
+                    : "text-[#414141] hover:text-[#010066]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 
