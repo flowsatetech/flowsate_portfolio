@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 const ServiceCard = () => {
   return (
-    <div className="grid grid-cols-1 grid-cols-2 gap-6 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
       {serviceCard?.map((service, index) => {
         return (
           <Card key={index} className="p-0 max-w-[651px] max-h-[695px]">
