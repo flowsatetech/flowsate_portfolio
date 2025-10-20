@@ -41,10 +41,10 @@ const EnterpriseSolutions = () => {
             Schedule Free Consultaion
           </p>
         </Button>
-        <Button className="bg-[#EFEFEF] text-black p-6">
+        {/* <Button className="bg-[#EFEFEF] text-black p-6">
           <Download className="w-24 h-24" />
           <p className="text-black font-medium text-base">Download Portfolio</p>
-        </Button>
+        </Button> */}
       </div>
       <div className="flex flex-col md:flex-row gap-1 md:gap-6 mt-4">
         <p className="text-black/46 font-medium text-base">
