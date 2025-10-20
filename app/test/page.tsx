@@ -1,9 +1,12 @@
-import React from 'react'
+import BackgroundSlider from "@/components/background-slider";
+import HomeSlider from "@/components/home-slider";
 
-const page = () => {
+export default function Test() {
+
   return (
-    <div>page</div>
-  )
+    <>
+    <HomeSlider/>
+    <BackgroundSlider/>
+    </>
+  );
 }
-
-export default page
