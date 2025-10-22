@@ -4,7 +4,7 @@ import HomeSlider from "@/components/home-slider";
 export default function Test() {
 
   return (
-    <div className="w-full">
+    <div className="w-full flex">
     <HomeSlider/>
     <BackgroundSlider/>
     </div>
