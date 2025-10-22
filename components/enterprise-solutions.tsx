@@ -21,10 +21,14 @@ const EnterpriseSolutions = () => {
         </CardContent>
       </Card>
       <div className="mt-4 max-w-[939px]">
-        <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug">
-          Enterprise Solutions for{" "}
-          <span className="text-[#5BA0D7]">Digital Excellence</span>
-        </h1>
+        <div className="flex flex-col">
+          <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug text-black/65">
+            Enterprise Solutions for
+          </h1>
+          <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug text-[#5BA0D7]">
+            Digital Excellence
+          </h1>
+        </div>
       </div>
       <div className="mt-4 max-w-[875px]">
         <p className="text-black/65 font-medium text-xs md:text-xl">
