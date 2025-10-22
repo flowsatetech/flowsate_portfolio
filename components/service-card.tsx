@@ -32,6 +32,7 @@ const ServiceCard = () => {
                     width={146}
                     height={146}
                     alt="icon"
+                    className="w-20 h-20 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-36 lg:h-36"
                   />
                   <p className="text-sm md:text-3xl text-semibold text-center opacity-90 mt-4">
                     {service.title}
@@ -55,7 +56,7 @@ const ServiceCard = () => {
                           // className="object-contain"
                         />
 
-                        <p className="text-base text-[#494949D1] font-medium">
+                        <p className="text-sm sm:text-base text-[#494949D1] font-medium">
                           {item.title}
                         </p>
                       </div>
@@ -63,22 +64,22 @@ const ServiceCard = () => {
                   </div>
                 </div>
                 {/* Vertical Divider */}
-                <div className="w-px bg-gray-300 mx-6"></div>
+                <div className="w-px bg-gray-300 mx-1 sm:mx-6"></div>
                 {/* Right Column - 70% */}
                 <div className="w-[60%] pl-6">
                   <div className="flex flex-col items-center justify-center max-w-[391px] ">
-                    <p className="text-base text-black/71 font-medium">
+                    <p className="text-sm sm:text-base text-black/71 font-medium">
                       {service.description}
                     </p>
-                    <div className="flex gap-6 mt-2">
+                    <div className="flex gap-2 sm:gap-6 mt-2">
                       <div className="flex flex-col">
-                        <p className="font-semibold text-black text-lg">
+                        <p className="font-semibold text-black text-sm sm:text-lg">
                           {service.timeline}
                         </p>
                         <p>Timeline</p>
                       </div>
                       <div className="flex flex-col">
-                        <p className="font-semibold text-black text-lg">
+                        <p className="font-semibold text-black text-sm sm:text-lg">
                           {service.complexity}
                         </p>
                         <p>Complexity</p>
@@ -88,7 +89,7 @@ const ServiceCard = () => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="flex flex-col items-start gap-4">
+            <CardFooter className="flex flex-col items-start gap-4 pb-2">
               <div className="w-full">
                 <p className="text-[#343434C2] font-normal text-sm mb-2">
                   Technologies:
