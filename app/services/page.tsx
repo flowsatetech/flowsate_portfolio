@@ -18,7 +18,7 @@ const Services = () => {
       <Stats />
       <ComprehensiveServices />
       <Clients />
-      <Team />
+      {/* <Team /> */}
       <IndustryCertification />
       <TransformBuisness />
       </div>
