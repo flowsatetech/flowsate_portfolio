@@ -11,13 +11,6 @@ import icon4 from "@/public/images/icon4.png";
 import icon5 from "@/public/images/icon5.png";
 import HomeSlider from "@/components/home-slider";
 
-const slides = [
-  { id: 1, image: "/images/Rectangle3455.png", title: "UI/UX Design" },
-  { id: 2, image: "/images/project2.jpg", title: "Web Development" },
-  { id: 3, image: "/images/project3.jpg", title: "Mobile App Development" },
-  { id: 4, image: "/images/project4.jpg", title: "Branding" },
-  { id: 5, image: "/images/project5.jpg", title: "E-commerce" },
-];
 
 export default function CarouselSection() {
   const slides = [
@@ -537,11 +530,12 @@ export default function CarouselSection() {
 
       {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white"> */}
       <section>
-        <div className="max-w-3xl mx-auto">
-          {/* Heading */}
-          <h2 className="text-3xl font-semibold text-center text-gray-900 mb-12">
-            Contact Us
-          </h2>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Heading */}
+    <h2 className="text-3xl font-semibold text-center text-gray-900 mb-12">
+      Contact Us
+    </h2>
 
           {/* Contact Form */}
           <form
