@@ -156,7 +156,10 @@ const ContactUs = () => {
                 <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
                   <p className="text-gray-600  whitespace-normal break-words max-w-full block">
-                    <a href="mailto:Flowsatetechteam@gmail.com">
+                    <a
+                      href="mailto:Flowsatetechteam@gmail.com"
+                      rel="noopener noreferrer"
+                    >
                       Flowsatetechteam@gmail.com
                     </a>
                   </p>
@@ -181,7 +184,11 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
-                  <p className="text-gray-600">+2348167193766</p>
+                  <a href="tel:+2348167193766"
+                  aria-label="call +2348167193766">
+                    {" "}
+                    <p className="text-gray-600">+2348167193766</p>
+                  </a>
                 </div>
               </div>
 
@@ -199,7 +206,13 @@ const ContactUs = () => {
                   <h3 className="font-semibold text-gray-900 mb-1">
                     Follow Us
                   </h3>
-                  <p className="text-gray-600">flowsatetech</p>
+                  <a
+                    href="https://x.com/flowsateo3?t=t3ylrM8lZc3N0tl13c6AoQ&s=09"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="text-gray-600">flowsatetech</p>{" "}
+                  </a>
                 </div>
               </div>
 
@@ -217,7 +230,14 @@ const ContactUs = () => {
                   <h3 className="font-semibold text-gray-900 mb-1">
                     Follow Us
                   </h3>
-                  <p className="text-gray-600">@Flowsatetech_ng</p>
+                  <a
+                    href="https://www.instagram.com/flowsate03?igsh=MTg3Y2pjNnMzaHlkbQ==&utm_source=ig_contact_invite"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    <p className="text-gray-600">@Flowsatetech_ng</p>
+                  </a>{" "}
                 </div>
               </div>
 
@@ -235,7 +255,13 @@ const ContactUs = () => {
                   <h3 className="font-semibold text-gray-900 mb-1">
                     Connect With Us
                   </h3>
-                  <p className="text-gray-600">Flowsatetech_ng</p>
+                  <a
+                    href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="text-gray-600">Flowsatetech_ng</p>
+                  </a>
                 </div>
               </div>
             </div>
