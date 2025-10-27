@@ -12,137 +12,141 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <main className="flex flex-col">
-    {/* Hero Section */}
-<section className="relative flex justify-center py-20 px-6 bg-gray-50">
-  <div className="relative w-full max-w-6xl rounded-md overflow-hidden">
-    {/* Background image */}
-    <Image
-      src="/images/about-bg.png"
-      alt="About background"
-      fill
-      className="object-cover opacity-40"
-    />
-    {/* Blue overlay */}
-    <div className="absolute inset-0 bg-[#4579A4] opacity-90"></div>
+      {/* Hero Section */}
+      <section className="relative flex justify-center py-20 px-6 bg-gray-50">
+        <div className="relative w-full max-w-6xl rounded-md overflow-hidden">
+          {/* Background image */}
+          <Image
+            src="/images/about-bg.png"
+            alt="About background"
+            fill
+            className="object-cover opacity-40"
+          />
+          {/* Blue overlay */}
+          <div className="absolute inset-0 bg-[#4579A4] opacity-90"></div>
 
-    {/* Content inside */}
-    <div className="relative z-10 text-center text-white max-w-3xl mx-auto py-16 px-6">
-      <h1 className="text-4xl sm:text-5xl text-[#010066] font-bold mb-6">Our Story</h1>
-      <p className="text-base sm:text-lg leading-relaxed opacity-95">
-        At{" "}
-        <span className="text-[#010066] font-semibold">Flowsate</span>, we
-        specialize in delivering smart, reliable, and modern tech services
-        to both companies and individuals. Our mission is simple — to make
-        technology work seamlessly for you. We combine innovation, expertise,
-        and a customer-first approach to create tailored solutions that solve
-        real problems, drive growth, and simplify digital experiences.
-        Whether it’s building scalable systems, providing IT support, or
-        helping businesses transform digitally, we are committed to
-        excellence in everything we do.
-        With a team of skilled professionals and a passion for innovation,
-        Flowsate is more than just a service provider — we are your trusted
-        partner in navigating today’s fast-moving digital world.
-      </p>
-    </div>
-  </div>
-</section>
+          {/* Content inside */}
+          <div className="relative z-10 text-center text-white max-w-3xl mx-auto py-16 px-6">
+            <h1 className="text-4xl sm:text-5xl text-[#010066] font-bold mb-6">
+              Our Story
+            </h1>
+            <p className="text-base sm:text-lg leading-relaxed opacity-95">
+              {" "}
+              <span className="text-[#010066] font-semibold">
+                Flowsate Tech
+              </span>{" "}
+              was founded to help startups and businesses transform their
+              digital presence through design and technology that deliver real
+              results.{" "}
+              <br />
+              What started as a small passion for web innovation has grown into
+              a{" "}
+              <strong>creative tech agency shaping tomorrow’s brands.</strong>{" "}
+              We blend creativity, innovation, and strategy to empower businesses
+              with digital experiences that inspire growth and lasting impact.
+            </p>
+          </div>
+        </div>
+      </section>
 
-{/* Our Blueprint Section */}
-<section className="py-20 px-6 bg-white">
-  <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-      Our Blueprint
-    </h2>
-    <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-      We design, develop, and secure websites that help businesses grow with
-      confidence.
-    </p>
+      {/* Our Blueprint Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+            Our Blueprint
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+            We design, develop, and secure websites that help businesses grow with confidence.
+          </p>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      {/* Mission */}
-      <div className="bg-white rounded-xl shadow-md overflow-hidden border">
-        <div
-          className="h-40 flex items-center justify-center relative"
-          style={{
-            backgroundImage: "url('/images/blue-wave.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          {/* Centered wave text is already inside the image */}
-          <div className="absolute -bottom-8 flex justify-center w-full">
-            <div className="bg-blue-600 rounded-full p-4 shadow-md">
-              <Image
-                src="/images/mission-icon.png"
-                alt="Mission"
-                width={40}
-                height={40}
-              />
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Mission */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border">
+              <div
+                className="h-48 flex flex-col items-center justify-center relative text-white font-semibold text-2xl"
+                style={{
+                  backgroundImage: "url('/images/blue-wave.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <h3 className="z-10 text-white-950">Mission</h3>
+                <div className="absolute -bottom-8 flex justify-center w-full">
+                  <div className="bg-blue-600 rounded-full p-4 shadow-md">
+                    <Image
+                      src="/images/mission-icon.png"
+                      alt="Mission Icon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-20"></div>
+              </div>
+              <div className="pt-12 pb-6 px-6 text-center text-gray-700">
+                Our mission is to combine design and technology to create products people love to use.
+              </div>
+            </div>
+
+            {/* Vision */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border">
+              <div
+                className="h-48 flex flex-col items-center justify-center relative text-white font-semibold text-2xl"
+                style={{
+                  backgroundImage: "url('/images/yellow-wave.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <h3 className="z-10 text-white-950">Vision</h3>
+                <div className="absolute -bottom-8 flex justify-center w-full">
+                  <div className="bg-yellow-500 rounded-full p-4 shadow-md">
+                    <Image
+                      src="/images/vision-icon.png"
+                      alt="Vision Icon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-20"></div>
+              </div>
+              <div className="pt-12 pb-6 px-6 text-center text-gray-700">
+                Our vision is to empower businesses through simple, impactful, and scalable digital solutions.
+              </div>
+            </div>
+
+            {/* Values */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border">
+              <div
+                className="h-48 flex flex-col items-center justify-center relative text-white font-semibold text-2xl"
+                style={{
+                  backgroundImage: "url('/images/red-wave.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <h3 className="z-10 text-white-950">Values</h3>
+                <div className="absolute -bottom-8 flex justify-center w-full">
+                  <div className="bg-red-600 rounded-full p-4 shadow-md">
+                    <Image
+                      src="/images/values-icon.png"
+                      alt="Values Icon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-20"></div>
+              </div>
+              <div className="pt-12 pb-6 px-6 text-center text-gray-700">
+                Our values: Innovation | Integrity | Collaboration | Excellence.
+              </div>
             </div>
           </div>
         </div>
-        <div className="pt-12 pb-6 px-6 text-center text-gray-700">
-          Our mission is to design, develop, and secure websites that empower
-          businesses to thrive online.
-        </div>
-      </div>
+      </section>
 
-      {/* Vision */}
-      <div className="bg-white rounded-xl shadow-md overflow-hidden border">
-        <div
-          className="h-40 flex items-center justify-center relative"
-          style={{
-            backgroundImage: "url('/images/yellow-wave.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute -bottom-8 flex justify-center w-full">
-            <div className="bg-yellow-500 rounded-full p-4 shadow-md">
-              <Image
-                src="/images/vision-icon.png"
-                alt="Vision"
-                width={40}
-                height={40}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="pt-12 pb-6 px-6 text-center text-gray-700">
-          Our vision is to design, develop, and secure websites that empower
-          businesses to thrive online.
-        </div>
-      </div>
-
-      {/* Values */}
-      <div className="bg-white rounded-xl shadow-md overflow-hidden border">
-        <div
-          className="h-40 flex items-center justify-center relative"
-          style={{
-            backgroundImage: "url('/images/red-wave.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute -bottom-8 flex justify-center w-full">
-            <div className="bg-red-600 rounded-full p-4 shadow-md">
-              <Image
-                src="/images/values-icon.png"
-                alt="Values"
-                width={40}
-                height={40}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="pt-12 pb-6 px-6 text-center text-gray-700">
-          Our values are to design, develop, and secure websites that empower
-          businesses to thrive online.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
       {/* What We Offer */}
       <section className="py-20 px-6 bg-gray-50">
