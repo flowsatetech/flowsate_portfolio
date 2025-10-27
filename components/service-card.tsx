@@ -71,7 +71,7 @@ const ServiceCard = () => {
                     <p className="text-sm sm:text-base text-black/71 font-medium">
                       {service.description}
                     </p>
-                    <div className="flex gap-2 sm:gap-6 mt-2">
+                    {/* <div className="flex gap-2 sm:gap-6 mt-2">
                       <div className="flex flex-col">
                         <p className="font-semibold text-black text-sm sm:text-lg">
                           {service.timeline}
@@ -84,7 +84,7 @@ const ServiceCard = () => {
                         </p>
                         <p>Complexity</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
