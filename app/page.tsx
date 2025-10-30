@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from "react";
@@ -6,17 +7,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; // ✅ only once
 
-// Image imports
-import icon1 from "@/public/images/icon1.png";
-import icon2 from "@/public/images/icon2.png";
-import icon3 from "@/public/images/icon3.png";
-import icon4 from "@/public/images/icon4.png";
-import icon5 from "@/public/images/icon5.png";
 
 import woman from "@/public/images/woman.png";
 import background from "@/public/images/background.png";
 import background2 from "@/public/images/background2.png";
 
+import icon1 from "@/public/images/icon1.png";
+import icon2 from "@/public/images/icon2.png";
+import icon3 from "@/public/images/icon3.png";
+import icon4 from "@/public/images/icon4.png";
+import icon5 from "@/public/images/icon5.png";
+import HomeSlider from "@/components/home-slider";
 
 
 export default function CarouselSection() {
@@ -148,8 +149,9 @@ export default function CarouselSection() {
         />
       ),
       title: "Branding",
-      description: "Complete brand identity solutions that make your business stand out from the competition."
-    }
+      description:
+        "Complete brand identity solutions that make your business stand out from the competition.",
+    },
   ];
 
 const projects = [
@@ -246,7 +248,6 @@ const projects = [
       opacity: 0,
     }),
   };
-
 
 
 
@@ -813,9 +814,196 @@ const projects = [
             ))}
           </motion.div>
         </div>
+      
+
+
+        {/* Soft overlay gradient for extra depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
       </section>
 
+      {/* carousel section */}
 
+      <section className="max-w-7xl mx-auto px-6 py-10">
+        {/* Carousel Container */}
+        <HomeSlider/>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our Services
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.slice(0, 6).map((service, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+              >
+                <div className="mb-4 text-blue-600 text-4xl">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <Link href="/services"></Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            Why Flowsate?
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            {/* Left column: Image */}
+            <div className="relative w-full h-64 lg:h-[350px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/tech.png" // ✅ replace with your image
+                alt="Why Flowsate"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div>
+              {/* Right column: Text */}
+
+              <div className="flex flex-col justify-center space-y-6">
+                {/* Point 1 */}
+                <div className="flex items-start">
+                  <div>
+                    <p className="text-gray-900  font-bold lg:font-semibold">
+                      At Flowsate, we bring together experts from different
+                      areas of tech to deliver solutions that are modern,
+                      reliable and built to scale.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Point 2 */}
+                <div className="flex items-start">
+                  <div>
+                    <p className="text-gray-600">
+                      <span className="font-bold lg:font-semibold">
+                        Cross-disciplinary Expertise
+                      </span>{" "}
+                      - A team of designers, developers, and strategist working
+                      together to deliver end-to-end solutions.
+                    </p>
+                  </div>
+                </div>
+
+                {/* point 3 */}
+                <div className="flex items-start">
+                  <div>
+                    <p className="text-gray-600">
+                      <span className="font-bold lg:font-semibold">
+                        proven Reliability
+                      </span>{" "}
+                      - Transparent process, clear communication, and results
+                      you can trust
+                    </p>
+                  </div>
+                </div>
+
+                {/* Point 4 */}
+                <div className="flex items-start">
+                  <div>
+                    <p className="text-gray-600">
+                      <span className="font-bold lg:font-semibold">
+                        Tailored Solutions
+                      </span>{" "}
+                      Tailored Solutions- We design and build with your unique
+                      business needs in mind,not just templates.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Point 5 */}
+                <div className="flex items-start">
+                  <div>
+                    <p className="text-gray-600">
+                      <span className="font-bold lg:font-semibold">
+                        {" "}
+                        Modern & Scalable Tech
+                      </span>
+                      - From web and mobile app to cloud solutions,we use
+                      technologies that grow with your business.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our Featured Projects
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover some of our most successful projects that showcase our
+              expertise and innovation
+            </p>
+          </div>
+
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+            {projects.map((project, index) => (
+              <div key={index} className="flex flex-col">
+                {/* Card (image only) */}
+                <div className="bg-white rounded-lg shadow-md overflow-hidden w-full">
+                  <div className="relative h-56">
+                    <Image
+                      src="/images/project.png"
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Tags & Link OUTSIDE card */}
+                <div className="flex gap-4 mt-3 items-center">
+                  <span className="bg-blue-300 text-white text-sm font-medium px-3 py-2 rounded">
+                    SaaS
+                  </span>
+                  <span className="bg-blue-300 text-white text-sm font-medium px-3 py-2 rounded">
+                    Fintech
+                  </span>
+                  <Link
+                    href="/projects"
+                    className="text-sm text-black underline"
+                  >
+                    View Website
+                  </Link>
+                </div>
+
+                {/* Project Title */}
+                <p className="mt-2 text-sm font-medium text-gray-700">
+                  {project.title}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
 
