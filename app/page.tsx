@@ -814,7 +814,7 @@ const projects = [
             ))}
           </motion.div>
         </div>
-      
+       
 
 
         {/* Soft overlay gradient for extra depth */}
