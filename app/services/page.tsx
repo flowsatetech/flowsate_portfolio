@@ -15,11 +15,11 @@ const Services = () => {
       <div className="w-full h-[30vh] sm:h-[50vh] md:h-screen">
         <BackgroundSlider />
       </div>
-      <AnimatedSection>
+      <AnimatedSection direction="up" delay={0.1}>
         <EnterpriseSolutions />
       </AnimatedSection>
 
-      <AnimatedSection delay={0.2}>
+      <AnimatedSection direction="left" delay={0.2}>
         <Stats />
       </AnimatedSection>
 
@@ -27,7 +27,7 @@ const Services = () => {
         <ComprehensiveServices />
       </AnimatedSection>
 
-      <AnimatedSection delay={0.4}>
+      <AnimatedSection direction="right" delay={0.4}>
         <Clients />
       </AnimatedSection>
       {/* <Team /> */}
