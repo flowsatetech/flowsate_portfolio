@@ -1,11 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { buisnessCard } from "@/constants/buisness-card";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Calendar, Download } from "lucide-react";
+import { Dialog, DialogContent } from "./ui/dialog";
 
 const TransformBusiness = () => {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
+  const calendlyUrl = "https://calendly.com/flowsatedevteams/30min";
+
   return (
     <div
       className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed py-30"
@@ -56,18 +63,38 @@ const TransformBusiness = () => {
           })}
         </div>
         <div className="flex flex-col md:flex-row mt-8 gap-20">
-          <Button className="bg-[#5BA0D7] p-6 w-80">
-            <Calendar className="w-24 h-24" />
+          <Button
+            className="bg-[#5BA0D7] p-6 w-80 hover:bg-[#4A90C4] transition-colors"
+            onClick={() => setIsCalendlyOpen(true)}
+          >
+            <Calendar className="w-6 h-6 mr-2" />
             <p className="text-white font-medium text-base">
-              Schedule Free Consultaion
+              Schedule Free Consultation
             </p>
           </Button>
-          <Button className="bg-[#EFEFEF] text-black p-6 w-80">
+          <Button className="bg-[#EFEFEF] text-black p-6 w-80 hover:bg-gray-200 transition-colors">
             <p className="text-black font-medium text-base">Get Custom Quote</p>
           </Button>
         </div>
-        <p className="text-white mt-10 font-medium text-lg">✓ No commitment required ✓ Response within 24 hours ✓ NDA available</p>
+        <p className="text-white mt-10 font-medium text-lg">
+          ✓ No commitment required ✓ Response within 24 hours ✓ NDA available
+        </p>
       </div>
+
+      <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>
+        <DialogContent className="max-w-4xl h-[80vh] sm:h-[90vh] p-0 border-0">
+          <div className="w-full h-full">
+            <iframe
+              src={calendlyUrl}
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Schedule Free Consultation"
+              className="rounded-lg"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
