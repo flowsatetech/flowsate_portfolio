@@ -18,13 +18,13 @@ const TransformBusiness = () => {
           Ready to Transform Your Business?
         </h1>
         <div className="mt-4 max-w-[1148px]">
-          <p className="text-white font-normal text-2xl">
+          <p className="text-white font-normal text-xl sm:text-2xl">
             Join hundreds of successful companies who have transformed their
             operations with our technology solutions.
           </p>
         </div>
         <div className="mt-4 max-w-[500px]">
-          <p className="text-white font-normal text-2xl">
+          <p className="text-white font-normal text-xl sm:text-2xl">
             Get started with a free consultation and custom project estimate.
           </p>
         </div>

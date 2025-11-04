@@ -11,14 +11,14 @@ import React from 'react'
 const Services = () => {
   return (
     <div >
-      <div className="w-full h-screen">
+      <div className="w-full h-[30vh] sm:h-[50vh] md:h-screen">
       <BackgroundSlider />
       </div>
       <EnterpriseSolutions />
       <Stats />
       <ComprehensiveServices />
       <Clients />
-      <Team />
+      {/* <Team /> */}
       <IndustryCertification />
       <TransformBuisness />
       </div>
