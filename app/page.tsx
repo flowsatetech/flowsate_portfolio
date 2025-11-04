@@ -1,12 +1,9 @@
-
-
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; // ✅ only once
-
 
 import woman from "@/public/images/woman.png";
 import background from "@/public/images/background.png";
@@ -18,14 +15,14 @@ import icon3 from "@/public/images/icon3.png";
 import icon4 from "@/public/images/icon4.png";
 import icon5 from "@/public/images/icon5.png";
 import HomeSlider from "@/components/home-slider";
-
+import { easeOut } from "framer-motion";
 
 export default function CarouselSection() {
   const slides = [
-    { id: 1, image: "/images/project.png" },
-    { id: 2, image: "/images/tech.png" },
-    { id: 3, image: "/images/woman.png" },
-    { id: 4, image: "/images/background 2.png" },
+    { id: 1, image: "/images/project.png", title: "" },
+    { id: 2, image: "/images/tech.png", title: "" },
+    { id: 3, image: "/images/woman.png", title: "" },
+    { id: 4, image: "/images/background 2.png", title: "" },
   ];
 
   const [current, setCurrent] = useState(0);
@@ -62,10 +59,9 @@ export default function CarouselSection() {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: easeOut },
     },
   };
-
 
   const services = [
     {
@@ -108,7 +104,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Mobile App Development",
-      description: "built scalable cross-platform apps that grew user engagement by 55% within months."
+      description:
+        "built scalable cross-platform apps that grew user engagement by 55% within months.",
     },
 
     {
@@ -122,7 +119,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Cloud Solutions",
-      description: "Migrated lagacy system to the cloud saving clients upto 40% in annual infratructure cost."
+      description:
+        "Migrated lagacy system to the cloud saving clients upto 40% in annual infratructure cost.",
     },
 
     {
@@ -136,7 +134,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Data Analytics",
-      description: "Transformed raw data into insight that helped clients make smarter decision and increase ROI by 25% ."
+      description:
+        "Transformed raw data into insight that helped clients make smarter decision and increase ROI by 25% .",
     },
     {
       icon: (
@@ -154,36 +153,40 @@ export default function CarouselSection() {
     },
   ];
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "Modern online store with advanced features and seamless user experience.",
-    image: "/images/project.png",
-    liveDemo: "https://ecommerce-demo.com",
-    github: "https://github.com/username/ecommerce-platform",
-  },
-  {
-    title: "Healthcare Dashboard",
-    description: "Comprehensive patient management system with real-time analytics.",
-    image: "/images/project.png",
-    liveDemo: "https://healthcare-demo.com",
-    github: "https://github.com/username/healthcare-dashboard",
-  },
-  {
-    title: "Financial App",
-    description: "Mobile banking application with secure transactions and budgeting tools.",
-    image: "/images/project.png",
-    liveDemo: "https://financial-app-demo.com",
-    github: "https://github.com/username/financial-app",
-  },
-  {
-    title: "Learning Management System",
-    description: "Educational platform connecting students and instructors worldwide.",
-    image: "/images/project.png",
-    liveDemo: "https://lms-demo.com",
-    github: "https://github.com/username/learning-management-system",
-  },
-];
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description:
+        "Modern online store with advanced features and seamless user experience.",
+      image: "/images/project.png",
+      liveDemo: "https://ecommerce-demo.com",
+      github: "https://github.com/username/ecommerce-platform",
+    },
+    {
+      title: "Healthcare Dashboard",
+      description:
+        "Comprehensive patient management system with real-time analytics.",
+      image: "/images/project.png",
+      liveDemo: "https://healthcare-demo.com",
+      github: "https://github.com/username/healthcare-dashboard",
+    },
+    {
+      title: "Financial App",
+      description:
+        "Mobile banking application with secure transactions and budgeting tools.",
+      image: "/images/project.png",
+      liveDemo: "https://financial-app-demo.com",
+      github: "https://github.com/username/financial-app",
+    },
+    {
+      title: "Learning Management System",
+      description:
+        "Educational platform connecting students and instructors worldwide.",
+      image: "/images/project.png",
+      liveDemo: "https://lms-demo.com",
+      github: "https://github.com/username/learning-management-system",
+    },
+  ];
 
   const testimonials = [
     {
@@ -215,7 +218,9 @@ const projects = [
 
   const prevTestimonial = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   // Alternate auto direction (left-right-left)
@@ -248,8 +253,6 @@ const projects = [
       opacity: 0,
     }),
   };
-
-
 
   return (
     <main className="min-h-screen">
@@ -299,7 +302,12 @@ const projects = [
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -316,7 +324,12 @@ const projects = [
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -333,7 +346,12 @@ const projects = [
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -366,7 +384,6 @@ const projects = [
                 }}
               />
             </motion.h1>
-
 
             {/* Buttons */}
             <motion.div
@@ -442,7 +459,6 @@ const projects = [
                   </Link>
                 </motion.div>
               </div>
-
             </motion.div>
           </motion.div>
 
@@ -457,7 +473,11 @@ const projects = [
             <div className="rounded-[2rem] overflow-hidden shadow-2xl">
               <motion.div
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <Image
                   src="/images/background 2.png"
@@ -488,68 +508,64 @@ const projects = [
         />
       </section>
 
-
-
       {/* carousel section */}
 
-    
-   <section className="max-w-7xl mx-auto px-6 py-20">
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-300 ease-in-out"
-          style={{
-            transform: `translateX(-${current * slideWidth}%)`,
-            width: `${(slides.length / visibleCards) * 100}%`,
-          }}
-        >
-          {slides.map((slide, index) => (
-            <motion.div
-              key={slide.id}
-              custom={index - current}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              className="flex-shrink-0 px-4"
-              style={{ flex: `0 0 ${slideWidth}%` }}
-            >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="relative w-full h-64 md:h-80 rounded-t-xl overflow-hidden">
-                  <Image
-                    src={slide.image}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{
+              transform: `translateX(-${current * slideWidth}%)`,
+              width: `${(slides.length / visibleCards) * 100}%`,
+            }}
+          >
+            {slides.map((slide, index) => (
+              <motion.div
+                key={slide.id}
+                custom={index - current}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={cardVariants}
+                className="flex-shrink-0 px-4"
+                style={{ flex: `0 0 ${slideWidth}%` }}
+              >
+                <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                  <div className="relative w-full h-64 md:h-80 rounded-t-xl overflow-hidden">
+                    <Image
+                      src={slide.image}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {slide.title || "Project Title"}
+                    </h3>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {slide.title || "Project Title"}
-                  </h3>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Dots */}
-      <div className="flex justify-center mt-8 gap-2">
-        {Array.from({ length: slides.length - visibleCards + 1 }).map(
-          (_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === current ? "bg-[#010066]" : "bg-gray-300"
-              } transition-all duration-300`}
-            />
-          )
-        )}
-      </div>
-    </section>
-
+        {/* Dots */}
+        <div className="flex justify-center mt-8 gap-2">
+          {Array.from({ length: slides.length - visibleCards + 1 }).map(
+            (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`w-3 h-3 rounded-full ${
+                  index === current ? "bg-[#010066]" : "bg-gray-300"
+                } transition-all duration-300`}
+              />
+            )
+          )}
+        </div>
+      </section>
 
       {/* Our Services Section */}
 
@@ -728,8 +744,6 @@ const projects = [
         </div>
       </section>
 
-
-
       {/* Featured Projects Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -745,7 +759,8 @@ const projects = [
               Our Featured Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover some of our most successful projects that showcase our expertise and innovation
+              Discover some of our most successful projects that showcase our
+              expertise and innovation
             </p>
           </motion.div>
 
@@ -764,7 +779,11 @@ const projects = [
                   hidden: { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.2 }}
+                transition={{
+                  duration: 0.7,
+                  ease: "easeOut",
+                  delay: index * 0.2,
+                }}
               >
                 {/* Card Image */}
                 <div className="relative h-56 overflow-hidden">
@@ -783,16 +802,23 @@ const projects = [
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   >
                     {project.liveDemo && (
-                      <a href={project.liveDemo} target="_blank" className="px-4 py-2 bg-blue-600 rounded mb-2 hover:bg-blue-500 transition">
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        className="px-4 py-2 bg-blue-600 rounded mb-2 hover:bg-blue-500 transition"
+                      >
                         Live Demo
                       </a>
                     )}
                     {project.github && (
-                      <a href={project.github} target="_blank" className="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700 transition">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        className="px-4 py-2 bg-gray-800 rounded hover:bg-gray-700 transition"
+                      >
                         GitHub
                       </a>
                     )}
-
                   </motion.div>
                 </div>
 
@@ -814,195 +840,9 @@ const projects = [
             ))}
           </motion.div>
         </div>
-       
-
 
         {/* Soft overlay gradient for extra depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
-      </section>
-
-      {/* carousel section */}
-
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        {/* Carousel Container */}
-        <HomeSlider/>
-      </section>
-
-      {/* Our Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Services
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 6).map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
-              >
-                <div className="mb-4 text-blue-600 text-4xl">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-                <Link href="/services"></Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
-            Why Flowsate?
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Left column: Image */}
-            <div className="relative w-full h-64 lg:h-[350px] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/tech.png" // ✅ replace with your image
-                alt="Why Flowsate"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div>
-              {/* Right column: Text */}
-
-              <div className="flex flex-col justify-center space-y-6">
-                {/* Point 1 */}
-                <div className="flex items-start">
-                  <div>
-                    <p className="text-gray-900  font-bold lg:font-semibold">
-                      At Flowsate, we bring together experts from different
-                      areas of tech to deliver solutions that are modern,
-                      reliable and built to scale.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Point 2 */}
-                <div className="flex items-start">
-                  <div>
-                    <p className="text-gray-600">
-                      <span className="font-bold lg:font-semibold">
-                        Cross-disciplinary Expertise
-                      </span>{" "}
-                      - A team of designers, developers, and strategist working
-                      together to deliver end-to-end solutions.
-                    </p>
-                  </div>
-                </div>
-
-                {/* point 3 */}
-                <div className="flex items-start">
-                  <div>
-                    <p className="text-gray-600">
-                      <span className="font-bold lg:font-semibold">
-                        proven Reliability
-                      </span>{" "}
-                      - Transparent process, clear communication, and results
-                      you can trust
-                    </p>
-                  </div>
-                </div>
-
-                {/* Point 4 */}
-                <div className="flex items-start">
-                  <div>
-                    <p className="text-gray-600">
-                      <span className="font-bold lg:font-semibold">
-                        Tailored Solutions
-                      </span>{" "}
-                      Tailored Solutions- We design and build with your unique
-                      business needs in mind,not just templates.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Point 5 */}
-                <div className="flex items-start">
-                  <div>
-                    <p className="text-gray-600">
-                      <span className="font-bold lg:font-semibold">
-                        {" "}
-                        Modern & Scalable Tech
-                      </span>
-                      - From web and mobile app to cloud solutions,we use
-                      technologies that grow with your business.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Featured Projects
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover some of our most successful projects that showcase our
-              expertise and innovation
-            </p>
-          </div>
-
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-            {projects.map((project, index) => (
-              <div key={index} className="flex flex-col">
-                {/* Card (image only) */}
-                <div className="bg-white rounded-lg shadow-md overflow-hidden w-full">
-                  <div className="relative h-56">
-                    <Image
-                      src="/images/project.png"
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Tags & Link OUTSIDE card */}
-                <div className="flex gap-4 mt-3 items-center">
-                  <span className="bg-blue-300 text-white text-sm font-medium px-3 py-2 rounded">
-                    SaaS
-                  </span>
-                  <span className="bg-blue-300 text-white text-sm font-medium px-3 py-2 rounded">
-                    Fintech
-                  </span>
-                  <Link
-                    href="/projects"
-                    className="text-sm text-black underline"
-                  >
-                    View Website
-                  </Link>
-                </div>
-
-                {/* Project Title */}
-                <p className="mt-2 text-sm font-medium text-gray-700">
-                  {project.title}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Testimonials Section */}
@@ -1225,8 +1065,6 @@ const projects = [
           </motion.form>
         </motion.div>
       </section>
-
     </main>
   );
 }
-
