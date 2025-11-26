@@ -1,12 +1,9 @@
-
-
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; // ✅ only once
-
 
 import woman from "@/public/images/woman.png";
 import background from "@/public/images/background.png";
@@ -18,7 +15,7 @@ import icon3 from "@/public/images/icon3.png";
 import icon4 from "@/public/images/icon4.png";
 import icon5 from "@/public/images/icon5.png";
 import HomeSlider from "@/components/home-slider";
-
+import { easeOut } from "framer-motion";
 
 export default function CarouselSection() {
   const slides = [
@@ -106,7 +103,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Mobile App Development",
-      description: "built scalable cross-platform apps that grew user engagement by 55% within months."
+      description:
+        "built scalable cross-platform apps that grew user engagement by 55% within months.",
     },
 
     {
@@ -120,7 +118,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Cloud Solutions",
-      description: "Migrated lagacy system to the cloud saving clients upto 40% in annual infratructure cost."
+      description:
+        "Migrated lagacy system to the cloud saving clients upto 40% in annual infratructure cost.",
     },
 
     {
@@ -134,7 +133,8 @@ export default function CarouselSection() {
         />
       ),
       title: "Data Analytics",
-      description: "Transformed raw data into insight that helped clients make smarter decision and increase ROI by 25% ."
+      description:
+        "Transformed raw data into insight that helped clients make smarter decision and increase ROI by 25% .",
     },
     {
       icon: (
@@ -213,7 +213,9 @@ export default function CarouselSection() {
 
   const prevTestimonial = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   // Alternate auto direction (left-right-left)
@@ -246,8 +248,6 @@ export default function CarouselSection() {
       opacity: 0,
     }),
   };
-
-
 
   return (
     <main className="min-h-screen">
@@ -297,7 +297,12 @@ export default function CarouselSection() {
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -314,7 +319,12 @@ export default function CarouselSection() {
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -331,7 +341,12 @@ export default function CarouselSection() {
                 <motion.span
                   className="text-[#010066] block"
                   variants={{
-                    hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(6px)" },
+                    hidden: {
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.95,
+                      filter: "blur(6px)",
+                    },
                     visible: {
                       opacity: 1,
                       y: 0,
@@ -364,7 +379,6 @@ export default function CarouselSection() {
                 }}
               />
             </motion.h1>
-
 
             {/* Buttons */}
             <motion.div
@@ -440,7 +454,6 @@ export default function CarouselSection() {
                   </Link>
                 </motion.div>
               </div>
-
             </motion.div>
           </motion.div>
 
@@ -455,7 +468,11 @@ export default function CarouselSection() {
             <div className="rounded-[2rem] overflow-hidden shadow-2xl">
               <motion.div
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <Image
                   src="/images/background2.png"
@@ -674,8 +691,6 @@ export default function CarouselSection() {
         </div>
       </section>
 
-
-
       {/* Featured Projects Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -691,7 +706,8 @@ export default function CarouselSection() {
               Our Featured Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover some of our most successful projects that showcase our expertise and innovation
+              Discover some of our most successful projects that showcase our
+              expertise and innovation
             </p>
           </motion.div>
 
@@ -710,7 +726,11 @@ export default function CarouselSection() {
                   hidden: { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.2 }}
+                transition={{
+                  duration: 0.7,
+                  ease: "easeOut",
+                  delay: index * 0.2,
+                }}
               >
                 {/* Card Image */}
                 <div className="relative h-56 overflow-hidden">
@@ -774,7 +794,6 @@ export default function CarouselSection() {
         {/* Soft overlay gradient for extra depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
       </section>
-
 
       {/* Testimonials Section */}
 
@@ -996,8 +1015,6 @@ export default function CarouselSection() {
           </motion.form>
         </motion.div>
       </section>
-
     </main>
   );
 }
-
