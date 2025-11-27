@@ -47,12 +47,12 @@ const ContactUs = () => {
             Reach out today and lets have a conversation!
           </motion.h1>
           <motion.p variants={fadeUp} initial="hidden" animate="show" className="text-gray-600 mb-6">
-            Your questions, feedback, or&apos; ideas are always welcome
+            Your questions, feedback, or ideas are always welcome
           </motion.p>
 
           {state.succeeded && (
             <motion.p variants={fadeUp} initial="hidden" animate="show" className="text-green-600 mb-6">
-              Your message is on its way to us&apos; thank you! we'll respond soon.
+              Your message is on its way to us thank you! we'll respond soon.
             </motion.p>
           )}
 
