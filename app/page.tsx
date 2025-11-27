@@ -19,10 +19,24 @@ import { easeOut } from "framer-motion";
 
 export default function CarouselSection() {
   const slides = [
-    { id: 1, image: "/images/project.png", title: "" },
-    { id: 2, image: "/images/tech.png", title: "" },
-    { id: 3, image: "/images/woman.png", title: "" },
-    { id: 4, image: "/images/background 2.png", title: "" },
+    {
+      id: 1,
+
+      image: "/images/project.png",
+    },
+    {
+      id: 2,
+      image: "/images/tech.png",
+    },
+    {
+      id: 3,
+      image: "/images/woman.png",
+    },
+
+    {
+      id: 4,
+      image: "/images/background2.png",
+    },
   ];
 
   const [current, setCurrent] = useState(0);
@@ -39,29 +53,14 @@ export default function CarouselSection() {
   // Responsive visibleCards
   useEffect(() => {
     const updateCards = () => {
-      if (window.innerWidth < 640) setVisibleCards(1);
-      else if (window.innerWidth < 1024) setVisibleCards(2);
-      else setVisibleCards(3);
+      if (window.innerWidth < 640) setVisibleCards(1); // mobile
+      else if (window.innerWidth < 1024) setVisibleCards(2); // tablet
+      else setVisibleCards(3); // desktop
     };
     updateCards();
     window.addEventListener("resize", updateCards);
     return () => window.removeEventListener("resize", updateCards);
   }, []);
-
-  const slideWidth = 100 / visibleCards;
-
-  // Motion Variants
-  const cardVariants = {
-    hidden: (direction: number) => ({
-      x: direction > 0 ? 50 : -50,
-      opacity: 0,
-    }),
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: easeOut },
-    },
-  };
 
   const services = [
     {
@@ -156,32 +155,28 @@ export default function CarouselSection() {
   const projects = [
     {
       title: "E-Commerce Platform",
-      description:
-        "Modern online store with advanced features and seamless user experience.",
+      description: "Modern online store with advanced features and seamless user experience.",
       image: "/images/project.png",
       liveDemo: "https://ecommerce-demo.com",
       github: "https://github.com/username/ecommerce-platform",
     },
     {
       title: "Healthcare Dashboard",
-      description:
-        "Comprehensive patient management system with real-time analytics.",
+      description: "Comprehensive patient management system with real-time analytics.",
       image: "/images/project.png",
       liveDemo: "https://healthcare-demo.com",
       github: "https://github.com/username/healthcare-dashboard",
     },
     {
       title: "Financial App",
-      description:
-        "Mobile banking application with secure transactions and budgeting tools.",
+      description: "Mobile banking application with secure transactions and budgeting tools.",
       image: "/images/project.png",
       liveDemo: "https://financial-app-demo.com",
       github: "https://github.com/username/financial-app",
     },
     {
       title: "Learning Management System",
-      description:
-        "Educational platform connecting students and instructors worldwide.",
+      description: "Educational platform connecting students and instructors worldwide.",
       image: "/images/project.png",
       liveDemo: "https://lms-demo.com",
       github: "https://github.com/username/learning-management-system",
@@ -403,7 +398,7 @@ export default function CarouselSection() {
                     ease: "easeOut",
                   }}
                   whileHover={{
-                    boxShadow: "0px 0px 20px rgba(1, 0, 102, 0.3)",
+                    // boxShadow: "0px 0px 20px rgba(1, 0, 102, 0.3)",
                     y: -4, // slight lift on hover
                   }}
                   whileTap={{ y: 0 }}
@@ -436,7 +431,7 @@ export default function CarouselSection() {
                     ease: "easeOut",
                   }}
                   whileHover={{
-                    boxShadow: "0px 0px 20px rgba(1, 0, 102, 0.25)",
+                    // boxShadow: "0px 0px 20px rgba(1, 0, 102, 0.25)",
                     y: -4,
                   }}
                   whileTap={{ y: 0 }}
@@ -480,7 +475,7 @@ export default function CarouselSection() {
                 }}
               >
                 <Image
-                  src="/images/background 2.png"
+                  src="/images/background2.png"
                   alt="Team working together"
                   width={450}
                   height={400}
@@ -508,63 +503,15 @@ export default function CarouselSection() {
         />
       </section>
 
+
+
+
+
       {/* carousel section */}
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${current * slideWidth}%)`,
-              width: `${(slides.length / visibleCards) * 100}%`,
-            }}
-          >
-            {slides.map((slide, index) => (
-              <motion.div
-                key={slide.id}
-                custom={index - current}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
-                className="flex-shrink-0 px-4"
-                style={{ flex: `0 0 ${slideWidth}%` }}
-              >
-                <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                  <div className="relative w-full h-64 md:h-80 rounded-t-xl overflow-hidden">
-                    <Image
-                      src={slide.image}
-                      alt=""
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {slide.title || "Project Title"}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: slides.length - visibleCards + 1 }).map(
-            (_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === current ? "bg-[#010066]" : "bg-gray-300"
-                } transition-all duration-300`}
-              />
-            )
-          )}
-        </div>
+      <section className="max-w-7xl mx-auto px-6 py-10">
+        {/* Carousel Container */}
+        <HomeSlider />
       </section>
 
       {/* Our Services Section */}
@@ -796,7 +743,7 @@ export default function CarouselSection() {
 
                   {/* Overlay for Live Demo / GitHub */}
                   <motion.div
-                    className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white text-center opacity-0 group-hover:opacity-100"
+                    className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white text-center opacity-100 md:opacity-0 group-hover:opacity-100 p-4"
                     initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
                     whileHover={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
@@ -820,6 +767,7 @@ export default function CarouselSection() {
                       </a>
                     )}
                   </motion.div>
+
                 </div>
 
                 {/* Tags & Title */}
@@ -840,6 +788,8 @@ export default function CarouselSection() {
             ))}
           </motion.div>
         </div>
+
+
 
         {/* Soft overlay gradient for extra depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
