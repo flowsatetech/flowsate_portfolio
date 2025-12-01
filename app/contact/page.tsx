@@ -24,17 +24,27 @@ const ContactUs = () => {
     },
   };
 
-  const fadeUp = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
-  const fadeDown = { hidden: { opacity: 0, y: -40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
-  const fadeLeft = { hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.6 } } };
-  const fadeRight = { hidden: { opacity: 0, x: -40 }, show: { opacity: 1, x: 0, transition: { duration: 0.6 } } };
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+  const fadeDown = {
+    hidden: { opacity: 0, y: -40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+  const fadeLeft = {
+    hidden: { opacity: 0, x: 40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
+  const fadeRight = {
+    hidden: { opacity: 0, x: -40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
 
   return (
     <main className="min-h-screen md:h-auto bg-transparent mt-1">
-
       {/* CONTACT FORM SECTION */}
       <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 justify-between sm:p-10 lg:p-15 pb-8 pt-8">
-
         {/* Form */}
         <motion.div
           variants={fadeRight}
@@ -43,16 +53,32 @@ const ContactUs = () => {
           transition={{ delay: 0.2 }}
           className="order-2 md:order-1 flex-1 w-full md:w-1/2 bg-white p-8 rounded-sm"
         >
-          <motion.h1 variants={fadeUp} initial="hidden" animate="show" className="text-3xl font-bold mb-6">
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-3xl font-bold mb-6"
+          >
             Reach out today and lets have a conversation!
           </motion.h1>
-          <motion.p variants={fadeUp} initial="hidden" animate="show" className="text-gray-600 mb-6">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-gray-600 mb-6"
+          >
             Your questions, feedback, or ideas are always welcome
           </motion.p>
 
           {state.succeeded && (
-            <motion.p variants={fadeUp} initial="hidden" animate="show" className="text-green-600 mb-6">
-              Your message is on its way to us thank you! we&apos;ll respond soon.
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="text-green-600 mb-6"
+            >
+              Your message is on its way to us thank you! we&apos;ll respond
+              soon.
             </motion.p>
           )}
 
@@ -65,7 +91,9 @@ const ContactUs = () => {
             animate="show"
           >
             <motion.div variants={fadeLeft}>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium mb-1">
+                Name
+              </label>
               <input
                 id="name"
                 type="text"
@@ -74,11 +102,17 @@ const ContactUs = () => {
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <ValidationError prefix="Name" field="name" errors={state.errors} />
+              <ValidationError
+                prefix="Name"
+                field="name"
+                errors={state.errors}
+              />
             </motion.div>
 
             <motion.div variants={fadeRight}>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium mb-1">
+                Email
+              </label>
               <input
                 id="email"
                 type="email"
@@ -87,11 +121,17 @@ const ContactUs = () => {
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <ValidationError prefix="Email" field="email" errors={state.errors} />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
             </motion.div>
 
             <motion.div variants={fadeUp}>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone Number (Optional)</label>
+              <label htmlFor="phone" className="block text-sm font-medium mb-1">
+                Phone Number (Optional)
+              </label>
               <input
                 id="phone"
                 type="tel"
@@ -102,7 +142,12 @@ const ContactUs = () => {
             </motion.div>
 
             <motion.div variants={fadeLeft}>
-              <label htmlFor="message" className="block text-sm font-medium mb-1">Comment or Message</label>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-1"
+              >
+                Comment or Message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -111,7 +156,11 @@ const ContactUs = () => {
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <ValidationError prefix="Message" field="message" errors={state.errors} />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
             </motion.div>
 
             <motion.button
@@ -139,7 +188,6 @@ const ContactUs = () => {
 
       {/* SECOND SECTION */}
       <section className="flex flex-col md:flex-row items-center justify-between gap-8 sm:p-10 lg:p-15 lg:pb-0 lg:pt-0">
-
         {/* Contact Image */}
         <motion.div
           variants={fadeRight}
@@ -160,7 +208,12 @@ const ContactUs = () => {
           viewport={{ once: true }}
           className="order-1 md:order-2 w-full md:w-1/2 bg-white p-10 rounded-sm"
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 mb-4">Get in touch</motion.h2>
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl font-bold text-gray-900 mb-4"
+          >
+            Get in touch
+          </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-600 mb-6">
             we&apos;re only a message away. let&apos;s connect!
           </motion.p>
@@ -198,11 +251,14 @@ const ContactUs = () => {
               </div>
             </div>
 
-
             {/* WhatsApp */}
             <motion.div variants={fadeRight} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
-                <a href="https://wa.me/2349128800177" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/2349128800177"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <svg
                     className="w-6 h-6 text-white"
                     fill="currentColor"
@@ -214,7 +270,9 @@ const ContactUs = () => {
                 </a>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">WhatsApp Us</h3>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  WhatsApp Us
+                </h3>
                 <p className="text-gray-600">+2349128800177</p>
               </div>
             </motion.div>
@@ -223,7 +281,11 @@ const ContactUs = () => {
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
                 <a href="https://x.com/flowsateo3" target="_blank">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
                   </svg>
                 </a>
@@ -237,8 +299,16 @@ const ContactUs = () => {
             {/* Instagram */}
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
-                <a href="https://www.instagram.com/flowsate03" target="_blank" rel="noopener noreferrer">
-                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <a
+                  href="https://www.instagram.com/flowsate03"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="w-6 h-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.427.402a4.918 4.918 0 011.797 1.044 4.918 4.918 0 011.044 1.797c.162.457.348 1.257.402 2.427.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.402 2.427a4.918 4.918 0 01-1.044 1.797 4.918 4.918 0 01-1.797 1.044c-.457.162-1.257.348-2.427.402-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.427-.402a4.918 4.918 0 01-1.797-1.044 4.918 4.918 0 01-1.044-1.797c-.162-.457-.348-1.257-.402-2.427C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.402-2.427a4.918 4.918 0 011.044-1.797 4.918 4.918 0 011.797-1.044c.457-.162 1.257-.348 2.427-.402C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.012 7.052.07 5.77.127 4.738.345 3.897.67 2.998 1.02 2.21 1.534 1.534 2.21.858 2.886.344 3.674.004 4.573c-.324.841-.543 1.873-.6 3.155C-.012 8.332 0 8.735 0 12c0 3.265.012 3.668.07 4.948.057 1.282.276 2.314.6 3.155.34.899.854 1.687 1.53 2.363.676.676 1.464 1.19 2.363 1.53.841.324 1.873.543 3.155.6 1.28.058 1.683.07 4.948.07s3.668-.012 4.948-.07c1.282-.057 2.314-.276 3.155-.6.899-.34 1.687-.854 2.363-1.53.676-.676 1.19-1.464 1.53-2.363.324-.841.543-1.873.6-3.155.058-1.28.07-1.683.07-4.948s-.012-3.668-.07-4.948c-.057-1.282-.276-2.314-.6-3.155-.34-.899-.854-1.687-1.53-2.363-.676-.676-1.464-1.19-2.363-1.53-.841-.324-1.873-.543-3.155-.6C15.668.012 15.265 0 12 0z" />
                     <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z" />
                     <circle cx="18.406" cy="5.594" r="1.44" />
@@ -254,8 +324,16 @@ const ContactUs = () => {
             {/* Facebook */}
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
-                <a href="https://www.facebook.com/share/1LTnaz5EfJ/" target="_blank" rel="noopener noreferrer">
-                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <a
+                  href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="w-6 h-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M22.675 0h-21.35C.597 0 0 .598 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692V11.24h3.128V8.414c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.795.716-1.795 1.764v2.313h3.587l-.467 3.467h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .598 23.403 0 22.675 0z" />
                   </svg>
                 </a>
@@ -265,7 +343,6 @@ const ContactUs = () => {
                 <p className="text-gray-600">Flowsate Tech Company</p>
               </div>
             </motion.div>
-
           </div>
         </motion.div>
       </section>
