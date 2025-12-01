@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+
 
 const ContactUs = () => {
   const [state, handleSubmit] = useForm("mnngvnbg");
@@ -13,21 +14,83 @@ const ContactUs = () => {
     }
   }, [state.succeeded]);
 
+  // Motion Variants
+  const staggerContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+  const fadeDown = {
+    hidden: { opacity: 0, y: -40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+  const fadeLeft = {
+    hidden: { opacity: 0, x: 40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
+  const fadeRight = {
+    hidden: { opacity: 0, x: -40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <main className="min-h-screen md:h-auto  sm:bg-gray-50 bg-transparent mt-1">
-      <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 justify-between sm:p-10  lg:p-15 pb-8 pt-8">
-        <div className="order-2 md:order-1 flex-1 w-full md:w-1/2 bg-white p-8 rounded-sm">
-          <h1 className="text-3xl font-bold mb-6">Reach out to us</h1>
-          <p className="text-gray-600 mb-6">
-            Fill out the form and we&#39;ll get back to you.
-          </p>
+    <main className="min-h-screen md:h-auto bg-transparent mt-1">
+      {/* CONTACT FORM SECTION */}
+      <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 justify-between sm:p-10 lg:p-15 pb-8 pt-8">
+        {/* Form */}
+        <motion.div
+          variants={fadeRight}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.2 }}
+          className="order-2 md:order-1 flex-1 w-full md:w-1/2 bg-white p-8 rounded-sm"
+        >
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-3xl font-bold mb-6"
+          >
+            Reach out today and lets have a conversation!
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-gray-600 mb-6"
+          >
+            Your questions, feedback, or ideas are always welcome
+          </motion.p>
+
           {state.succeeded && (
-            <p className="text-green-600 mb-6">
-              ✅ Thanks for your message! We&#39;ll get back to you soon.
-            </p>
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="text-green-600 mb-6"
+            >
+              Your message is on its way to us thank you! we&apos;ll respond
+              soon.
+            </motion.p>
           )}
-          <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
-            <div>
+
+          <motion.form
+            ref={formRef}
+            className="space-y-4"
+            onSubmit={handleSubmit}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={fadeLeft}>
               <label htmlFor="name" className="block text-sm font-medium mb-1">
                 Name
               </label>
@@ -44,9 +107,9 @@ const ContactUs = () => {
                 field="name"
                 errors={state.errors}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={fadeRight}>
               <label htmlFor="email" className="block text-sm font-medium mb-1">
                 Email
               </label>
@@ -63,9 +126,9 @@ const ContactUs = () => {
                 field="email"
                 errors={state.errors}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={fadeUp}>
               <label htmlFor="phone" className="block text-sm font-medium mb-1">
                 Phone Number (Optional)
               </label>
@@ -76,8 +139,9 @@ const ContactUs = () => {
                 placeholder="Enter phone number"
                 className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
-            <div>
+            </motion.div>
+
+            <motion.div variants={fadeLeft}>
               <label
                 htmlFor="message"
                 className="block text-sm font-medium mb-1"
@@ -97,217 +161,190 @@ const ContactUs = () => {
                 field="message"
                 errors={state.errors}
               />
-            </div>
-            <button
+            </motion.div>
+
+            <motion.button
+              variants={fadeDown}
               type="submit"
               disabled={state.submitting}
-              className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-blue-700"
+              className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-blue-700 transition-all"
             >
               {state.submitting ? "Sending..." : "Send Message"}
-            </button>
-          </form>
-        </div>
+            </motion.button>
+          </motion.form>
+        </motion.div>
 
-        <div className=" order-1 md:order-2 flex-1 w-full md:w-1/2 flex justify-center">
-          <img
-            src="/images/rafiki.svg"
-            alt="Send message illustration"
-            className="max-w-sm w-full h-auto"
-          />
-        </div>
+        {/* Form Image */}
+        <motion.div
+          variants={fadeLeft}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 1.2 }}
+          className="order-1 md:order-2 flex-1 w-full md:w-1/2 flex justify-center"
+        >
+          <img src="/images/rafiki.svg" alt="Send message illustration" className="max-w-sm w-full h-auto" />
+        </motion.div>
       </section>
 
-      <section className="flex flex-col md:flex-row items-center justify-between gap-8  sm:p-10 lg:p-15 lg:pb-0 lg:pt-0 md:p-1 ">
-        <div className="order-2 md:order-1  w-full md:w-1/2 flex justify-center">
-          <img
-            src="/images/rafiki1.svg"
-            alt="Get in touch illustration"
-            className="max-w-sm w-full h-auto  sm:pb-10"
-          />
-        </div>
+      {/* SECOND SECTION */}
+      <section className="flex flex-col md:flex-row items-center justify-between gap-8 sm:p-10 lg:p-15 lg:pb-0 lg:pt-0">
+        {/* Contact Image */}
+        <motion.div
+          variants={fadeRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="order-2 md:order-1 w-full md:w-1/2 flex justify-center"
+        >
+          <img src="/images/rafiki1.svg" alt="Get in touch illustration" className="max-w-sm w-full h-auto sm:pb-10" />
+        </motion.div>
 
-        <div className="order-1 md:order-2 w-full md:w-1/2 bg-white p-10 rounded-sm -mb-2 ">
-          <div className="sm:p-0 lg:p-0 sm:pr-10 md:pb-12 lg:pr-22 lg:pb-15">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Get in touch
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Lorem ipsum dolor sit amet consectetur. Sit sed placerat odio
-              volutpat purus.
-            </p>
+        {/* Contact Cards */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="order-1 md:order-2 w-full md:w-1/2 bg-white p-10 rounded-sm"
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl font-bold text-gray-900 mb-4"
+          >
+            Get in touch
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-600 mb-6">
+            we&apos;re only a message away. let&apos;s connect!
+          </motion.p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
-                  <a
-                    href="mailto:Flowsatetechteam@gmail.com"
-                    rel="noopener noreferrer"
+          <div className="space-y-6">
+            {/* Email */}
+            <div className="flex items-start gap-4">
+              <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=Flowsate03@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
-                  <p className="text-gray-600  whitespace-normal break-words max-w-full block">
-                    <a
-                      href="mailto:Flowsatetechteam@gmail.com"
-                      rel="noopener noreferrer"
-                    >
-                      Flowsatetechteam@gmail.com
-                    </a>
-                  </p>
-                </div>
+                    <path d="M20 4H4C2.897 4 2 4.897 2 6v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 5-8-5V6h16zm-16 12V9.489l7.381 4.613c.252.157.546.157.798 0L20 9.489V18H4z" />
+                  </svg>
+                </a>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
-                  <a href="tel:+2348167193766" aria-label="call +2348167193766">
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
-                  <a href="tel:+2348167193766" aria-label="call +2348167193766">
-                    {" "}
-                    <p className="text-gray-600">+2348167193766</p>
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
+                <p className="text-gray-600 break-words">
                   <a
-                    href="https://x.com/flowsateo3?t=t3ylrM8lZc3N0tl13c6AoQ&s=09"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=Flowsate03@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
+                    Flowsate03@gmail.com
                   </a>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Follow Us
-                  </h3>
-                  <a
-                    href="https://x.com/flowsateo3?t=t3ylrM8lZc3N0tl13c6AoQ&s=09"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p className="text-gray-600">flowsatetech</p>{" "}
-                  </a>
-                </div>
+                </p>
               </div>
+            </div>
 
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
-                  <a
-                    href="https://www.instagram.com/flowsate03?igsh=MTg3Y2pjNnMzaHlkbQ==&utm_source=ig_contact_invite"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            {/* WhatsApp */}
+            <motion.div variants={fadeRight} className="flex items-start gap-4">
+              <div className="bg-[#010066] p-3 rounded-lg">
+                <a
+                  href="https://wa.me/2349128800177"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Follow Us
-                  </h3>
-                  <a
-                    href="https://www.instagram.com/flowsate03?igsh=MTg3Y2pjNnMzaHlkbQ==&utm_source=ig_contact_invite"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {" "}
-                    <p className="text-gray-600">@Flowsatetech_ng</p>
-                  </a>{" "}
-                </div>
+                    <path d="M12.004 2.003c-5.523 0-10 4.477-10 10 0 1.765.46 3.41 1.264 4.855L2 22l5.335-1.253A9.963 9.963 0 0012.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm5.37 14.12c-.254.715-1.472 1.371-2.05 1.464-.545.084-1.226.12-2.44-.573-3.064-1.45-5.04-5.048-5.176-5.27-.133-.222-1.096-1.487-1.096-2.837 0-1.35.7-2.01.95-2.29.245-.282.54-.352.716-.352.182 0 .365.006.527.008.17.002.398-.064.607.452.205.516.7 1.78.762 1.914.062.133.104.288.02.466-.082.177-.123.283-.244.438-.123.154-.26.343-.37.46-.122.13-.248.276-.108.541.14.266.624 1.043 1.34 1.687.918.811 1.684 1.063 1.945 1.183.26.118.412.104.563-.063.15-.168.643-.771.81-.98.166-.21.33-.176.554-.105.225.072 1.42.67 1.666.792.247.122.412.183.473.285.062.102.062.593-.192 1.308z" />
+                  </svg>
+                </a>
               </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">
+                  WhatsApp Us
+                </h3>
+                <p className="text-gray-600">+2349128800177</p>
+              </div>
+            </motion.div>
 
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
+            {/* Socials: Twitter */}
+            <motion.div variants={fadeUp} className="flex items-start gap-4">
+              <div className="bg-[#010066] p-3 rounded-lg">
+                <a href="https://x.com/flowsateo3" target="_blank">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
                   </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
-                    Connect With Us
-                  </h3>
-                  <a href="" target="_blank" rel="noopener noreferrer">
-                    <p className="text-gray-600">Flowsatetech_ng</p>
-                  </a>
-                </div>
+                </a>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-[#010066] p-3 rounded-lg flex-shrink-0">
-                  <a
-                    href="https://www.facebook.com/share/1LTnaz5EfJ/"
-                    target="_blank"
-                    rel="noopener nonreferrer"
-                  >
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24H12.82v-9.294H9.692V11.08h3.128V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.764v2.307h3.587l-.467 3.626h-3.12V24h6.116C23.403 24 24 23.403 24 22.667V1.333C24 .598 23.403 0 22.675 0z" />
-                    </svg>
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 ">Engage With us</h3>
-                  <a
-                    href="https://www.facebook.com/share/1LTnaz5EfJ/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p className="text-gray-600">Flowsate Tech Company</p>
-                  </a>
-                </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Follow Us</h3>
+                <p className="text-gray-600">flowsatetech</p>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Instagram */}
+            <motion.div variants={fadeUp} className="flex items-start gap-4">
+              <div className="bg-[#010066] p-3 rounded-lg">
+                <a
+                  href="https://www.instagram.com/flowsate03"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="w-6 h-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.427.402a4.918 4.918 0 011.797 1.044 4.918 4.918 0 011.044 1.797c.162.457.348 1.257.402 2.427.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.402 2.427a4.918 4.918 0 01-1.044 1.797 4.918 4.918 0 01-1.797 1.044c-.457.162-1.257.348-2.427.402-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.427-.402a4.918 4.918 0 01-1.797-1.044 4.918 4.918 0 01-1.044-1.797c-.162-.457-.348-1.257-.402-2.427C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.402-2.427a4.918 4.918 0 011.044-1.797 4.918 4.918 0 011.797-1.044c.457-.162 1.257-.348 2.427-.402C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.012 7.052.07 5.77.127 4.738.345 3.897.67 2.998 1.02 2.21 1.534 1.534 2.21.858 2.886.344 3.674.004 4.573c-.324.841-.543 1.873-.6 3.155C-.012 8.332 0 8.735 0 12c0 3.265.012 3.668.07 4.948.057 1.282.276 2.314.6 3.155.34.899.854 1.687 1.53 2.363.676.676 1.464 1.19 2.363 1.53.841.324 1.873.543 3.155.6 1.28.058 1.683.07 4.948.07s3.668-.012 4.948-.07c1.282-.057 2.314-.276 3.155-.6.899-.34 1.687-.854 2.363-1.53.676-.676 1.19-1.464 1.53-2.363.324-.841.543-1.873.6-3.155.058-1.28.07-1.683.07-4.948s-.012-3.668-.07-4.948c-.057-1.282-.276-2.314-.6-3.155-.34-.899-.854-1.687-1.53-2.363-.676-.676-1.464-1.19-2.363-1.53-.841-.324-1.873-.543-3.155-.6C15.668.012 15.265 0 12 0z" />
+                    <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z" />
+                    <circle cx="18.406" cy="5.594" r="1.44" />
+                  </svg>
+                </a>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Follow Us</h3>
+                <p className="text-gray-600">@Flowsatetech_ng</p>
+              </div>
+            </motion.div>
+
+            {/* Facebook */}
+            <motion.div variants={fadeUp} className="flex items-start gap-4">
+              <div className="bg-[#010066] p-3 rounded-lg">
+                <a
+                  href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="w-6 h-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M22.675 0h-21.35C.597 0 0 .598 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692V11.24h3.128V8.414c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.795.716-1.795 1.764v2.313h3.587l-.467 3.467h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .598 23.403 0 22.675 0z" />
+                  </svg>
+                </a>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900">Engage With Us</h3>
+                <p className="text-gray-600">Flowsate Tech Company</p>
+              </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   );
