@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
 
 const ContactUs = () => {
   const [state, handleSubmit] = useForm("mnngvnbg");
@@ -215,7 +215,7 @@ const ContactUs = () => {
             Get in touch
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-600 mb-6">
-            we're only a message away. let's connect!
+            we&apos;re only a message away. let&apos;s connect!
           </motion.p>
 
           <div className="space-y-6">
