@@ -52,7 +52,7 @@ const ContactUs = () => {
 
           {state.succeeded && (
             <motion.p variants={fadeUp} initial="hidden" animate="show" className="text-green-600 mb-6">
-              Your message is on its way to us thank you! we'll respond soon.
+              Your message is on its way to us thank you! we&apos;ll respond soon.
             </motion.p>
           )}
 
@@ -162,7 +162,7 @@ const ContactUs = () => {
         >
           <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 mb-4">Get in touch</motion.h2>
           <motion.p variants={fadeUp} className="text-gray-600 mb-6">
-            we're only a message away. let's connect!
+            we&apos;re only a message away. let&apos;s connect!
           </motion.p>
 
           <div className="space-y-6">
