@@ -392,8 +392,10 @@ export default function AboutPage() {
         />
       </section>
 
+
       {/* Team Section */}
-      <section className="py-20 px-6 bg-gray-50">
+
+       <section className="py-20 px-6 bg-gray-50">
         <h2 className="text-3xl font-semibold text-center mb-4">The Team</h2>
         <p className="text-center max-w-2xl mx-auto text-gray-600 mb-12">
           A creative mix of designers, developers, and strategists, united by a
@@ -401,24 +403,26 @@ export default function AboutPage() {
         </p>
 
         {/* Team Carousel */}
-        <Carousel
-          items={teamMembers.map(member => (
-            <div className="bg-white rounded-2xl shadow-lg p-6 flex-shrink-0 flex flex-col items-center text-center min-w-[250px]">
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={150}
-                height={150}
-                className="rounded-xl mb-4 object-cover w-36 h-36"
-              />
-              <h4 className="font-semibold text-lg">{member.name}</h4>
-              <p className="text-gray-500 text-sm">{member.role}</p>
-            </div>
-          ))}
-          itemMinWidth={250}
-          speed={40}
-        />
-      </section>
+       <Carousel
+  items={teamMembers.map(member => (
+    <motion.div 
+    >
+      <Image
+        src={member.image}
+        alt={member.name}
+        width={150}
+        height={150}
+        className="rounded-xl mb-4 object-cover w-36 h-36"
+      />
+      <h4 className="font-semibold text-lg">{member.name}</h4>
+      <p className="text-gray-500 text-sm">{member.role}</p>
+    </motion.div>
+  ))}
+  itemMinWidth={250}
+  speed={40}
+/>
+      </section> 
+
 
 {/* Join Our Team */}
 <section className="relative py-20 px-6 text-center text-white">
