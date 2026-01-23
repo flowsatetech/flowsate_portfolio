@@ -396,7 +396,7 @@ export default function AboutPage() {
       {/* Team Section */}
 
        <section className="py-20 px-6 bg-gray-50">
-        <h2 className="text-3xl font-semibold text-center mb-4">The Team</h2>
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-4">The Team</h2>
         <p className="text-center max-w-2xl mx-auto text-gray-600 mb-12">
           A creative mix of designers, developers, and strategists, united by a
           passion for turning ideas into impactful digital experiences.
