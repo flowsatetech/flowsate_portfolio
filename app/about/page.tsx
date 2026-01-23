@@ -367,7 +367,7 @@ export default function AboutPage() {
 
       {/* What We Offer */}
       <section className="py-20 px-6 bg-gray-50">
-        <h2 className="text-3xl font-semibold text-gray-600 text-center mb-4">
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-4">
           What We Offer
         </h2>
         <p className="text-center max-w-2xl mx-auto text-gray-600 mb-12">
