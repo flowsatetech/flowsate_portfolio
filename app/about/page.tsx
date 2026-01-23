@@ -412,7 +412,7 @@ export default function AboutPage() {
         alt={member.name}
         width={150}
         height={150}
-        className="rounded-xl mb-4 object-cover w-36 h-36"
+        className="rounded-xl mb-4 object-cover w-50 h-50"
       />
       <h4 className="font-semibold text-lg">{member.name}</h4>
       <p className="text-gray-500 text-sm">{member.role}</p>
