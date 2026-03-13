@@ -118,7 +118,7 @@ const ContactUs = () => {
               variants={fadeDown}
               type="submit"
               disabled={state.submitting}
-              className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-blue-700 transition-all"
+              className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-[#010066] transition-all"
             >
               {state.submitting ? "Sending..." : "Send Message"}
             </motion.button>
