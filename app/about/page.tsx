@@ -5,7 +5,7 @@ import ServicesCarousel from "@/components/services-carousel";
 import TeamSection from "@/components/team-section";
 import JoinTeam from "@/components/jointeam-section";
 import ContactSection from "@/components/contact-section";
-import Footer from "@/components/Footer";
+
 
 
 
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <TeamSection />
       <JoinTeam />
       <ContactSection />
-     <Footer/>
+    
     </main>
   );
 }
