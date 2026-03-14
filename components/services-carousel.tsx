@@ -44,7 +44,7 @@ const ServicesCarousel = () => (
 
     <Carousel
       items={services.map(service => (
-        <div className="bg-[#4579A4] text-white rounded-2xl p-8 shadow-lg flex-shrink-0 flex flex-col items-center text-center min-w-[300px]">
+        <div key={service.title} className="bg-[#4579A4] text-white rounded-2xl p-8 shadow-lg flex-shrink-0 flex flex-col items-center text-center min-w-[300px]">
           <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6">
             <Image src={service.img} alt={service.title} width={50} height={50} />
           </div>
