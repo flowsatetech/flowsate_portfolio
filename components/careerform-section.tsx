@@ -30,19 +30,19 @@ const CareerForm = ({ onClose }: CareerFormProps) => {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full border border-gray-300 rounded-md p-2.5 text-sm"
+            className="w-full border border-gray-300 rounded-md p-2.5 text-sm text-gray-900 placeholder-gray-500"
           />
 
           <input
             type="email"
             placeholder="Your Email"
-            className="w-full border border-gray-300 rounded-md p-2.5 text-sm"
+            className="w-full border border-gray-300 rounded-md p-2.5 text-sm text-gray-900 placeholder-gray-500"
           />
 
           <textarea
             placeholder="Why do you want to join Flowsate?"
             rows={3}
-            className="w-full border border-gray-300 rounded-md p-2.5 text-sm"
+            className="w-full border border-gray-300 rounded-md p-2.5 text-sm text-gray-900 placeholder-gray-500"
           />
 
           <Button className="w-full bg-[#4579A4] text-white py-2.5 hover:bg-[#4579A4]/90">
