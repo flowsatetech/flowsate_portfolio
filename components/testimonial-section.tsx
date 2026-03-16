@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
-// Static imports for images
 import test1 from "@/public/images/test1.jpg"
 import test2 from "@/public/images/test2.jpg"
 import test4 from "@/public/images/test4.jpg"
@@ -42,54 +42,82 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-20 px-6 bg-white">
-      <h2 className="text-3xl font-semibold text-center mb-12 text-gray-900">
+      <motion.h2
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl font-semibold text-center mb-12 text-gray-900"
+      >
         What Our Clients Say
-      </h2>
+      </motion.h2>
 
-      <div className="max-w-3xl mx-auto bg-blue-900 text-white rounded-3xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center gap-8 p-8 transition-transform duration-300 hover:scale-105">
-        {/* Client Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto bg-blue-900 text-white rounded-3xl shadow-lg overflow-hidden flex flex-col sm:flex-row items-center gap-8 p-8"
+      >
+        {/* Image */}
         <div className="flex-shrink-0">
           <div className="w-70 h-60 rounded-xl overflow-hidden border-4 border-white shadow-md">
-            <Image
-              src={testimonials[currentIndex].image}
-              alt={testimonials[currentIndex].name}
-              width={200}
-              height={200}
-              className="object-cover w-full h-full"
-            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Image
+                  src={testimonials[currentIndex].image}
+                  alt={testimonials[currentIndex].name}
+                  width={200}
+                  height={200}
+                  className="object-cover w-full h-full"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
-        {/* Text Content */}
+        {/* Text */}
         <div className="flex-1">
-          <div key={currentIndex} aria-live="polite">
-            <h3 className="text-xl font-semibold mb-1">
-              {testimonials[currentIndex].name}
-            </h3>
-            <p className="text-blue-100 leading-relaxed">
-              {testimonials[currentIndex].text}
-            </p>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold mb-1">
+                {testimonials[currentIndex].name}
+              </h3>
 
-          {/* Navigation Buttons */}
+              <p className="text-blue-100 leading-relaxed">
+                {testimonials[currentIndex].text}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Buttons */}
           <div className="mt-6 flex gap-4">
             <button
               onClick={prevTestimonial}
               className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
-              aria-label="Previous"
             >
               ←
             </button>
+
             <button
               onClick={nextTestimonial}
               className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
-              aria-label="Next"
             >
               →
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
