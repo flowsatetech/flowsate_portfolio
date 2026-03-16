@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -22,6 +23,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    // Here you can add an API call to send the message
     setSubmitted(true)
 
     setFormData({
