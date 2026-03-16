@@ -44,31 +44,8 @@ const services = [
     title: "Branding",
     img: "/images/branding.png",
     points: ["Logo design", "Brand guidelines", "Color palettes & typography", "Brand voice development"],
-  },
-  {
-    title: "App development",
-    img: "/images/branding.png",
-    points: ["Custom mobile and web app solutions", "Seamless user experience design", "Integration with third-party APIs", "App maintenance and updates"],
-  },
-  {
-    title: "Cloud solutions",
-    img: "/images/branding.png",
-    points: ["Scalable cloud infrastructure setup", "Data storage and management", "Secure cloud migration", "Monitoring and optimization"],
-  },
-  {
-    title: "Data analytics",
-    img: "/images/branding.png",
-    points: ["Collect and analyze business data", "Generate actionable insights", "Dashboard and reporting solutions", "Predictive modeling and forecasting"],
-  },
-  {
-    title: "UI/UX Design",
-    img: "/images/uiux.png",
-    points: ["Wireframing & prototyping", "User research & testing", "Mobile & web UI design", "Interaction design"],
-  },
-  {
-    title: "Web Development",
-    img: "/images/webdev.png",
-    points: ["Front & backend development", "E-commerce solutions", "CMS integration", "Website maintenance"],
+    description:
+      "Complete brand identity solutions that make your buisness standout from the competition.",
   },
 ];
 
