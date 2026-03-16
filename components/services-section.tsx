@@ -45,7 +45,7 @@ const services = [
     img: "/images/branding.png",
     points: ["Logo design", "Brand guidelines", "Color palettes & typography", "Brand voice development"],
     description:
-      "Complete brand identity solutions that make your buisness standout from the competition",
+      "Complete brand identity solutions that make your buisness standout from the competition.",
   },
 ];
 
