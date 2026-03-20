@@ -4,7 +4,7 @@ import ServicesSection from "@/components/services-section";
 import WhyFlowsateSection from "@/components/why-flowsate-section";
 import ProjectsSection from "@/components/project-section";
 import TestimonialsSection from "@/components/testimonial-section";
-import ContactSection from "@/components/contact-section";
+import ContactSection from "@/components/contacts-section";
 const HomePage = () => {
   return (
     <>
