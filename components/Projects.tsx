@@ -16,7 +16,7 @@ const Projects = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {portfolioItems.map((item, index) => (
-        <Link href={item?.link} target="_blank" rel="noopener noreferrer">
+        <Link key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
           <Card
             key={index}
             className="group flex flex-col h-full p-0 overflow-hidden cursor-pointer"
