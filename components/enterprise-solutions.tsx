@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Calendar, Download } from "lucide-react";
+import { Dialog, DialogContent } from "./ui/dialog";
 
 const EnterpriseSolutions = () => {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
+  const calendlyUrl = "https://calendly.com/flowsatedevteams/30min";
+
   return (
     <div className="flex flex-col items-center justify-center text-center px-4 py-20">
       <Card className="border-[#A1E0F985] ">
@@ -39,7 +45,10 @@ const EnterpriseSolutions = () => {
         </p>
       </div>
       <div className="flex flex-col md:flex-row mt-4 gap-8">
-        <Button className="bg-[#5BA0D7] p-6">
+        <Button
+          className="bg-[#5BA0D7] p-6 cursor:pointer"
+          onClick={() => setIsCalendlyOpen(true)}
+        >
           <Calendar className="w-24 h-24" />
           <p className="text-white font-medium text-base">
             Schedule Free Consultaion
@@ -59,6 +68,21 @@ const EnterpriseSolutions = () => {
         </p>
         <p className="text-black/46 font-medium text-base">99.9% Uptime</p>
       </div>
+
+      <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>
+        <DialogContent className="max-w-4xl h-[80vh] sm:h-[90vh] p-0 border-0">
+          <div className="w-full h-full">
+            <iframe
+              src={calendlyUrl}
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Schedule Free Consultation"
+              className="rounded-lg"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

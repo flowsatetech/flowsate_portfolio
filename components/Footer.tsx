@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Github from "./icons/github";
+import Facebook from "./icons/facebook";
+import Tiktok from "./icons/tiktok";
 
 const Footer = () => {
   return (
@@ -152,6 +155,35 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+            <ul className="flex space-x-4 mt-4">
+              <li className="mt-4">
+                <Link
+                  href="https://github.com/flowsatetech"
+                  target="_blank"
+                  className="hover:text-[#010066]"
+                >
+                  <Github size="20"/>
+                </Link>
+              </li>
+              <li className="mt-4">
+                <Link
+                  href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                  target="_blank"
+                  className="hover:text-[#010066]"
+                >
+                  <Facebook size="20"/>
+                </Link>
+              </li>
+              <li className="mt-4">
+                <Link
+                  href="https://github.com/flowsatetech"
+                  target="_blank"
+                  className="hover:text-[#010066]"
+                >
+                  <Tiktok size="20"/>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -164,5 +196,5 @@ const Footer = () => {
     </footer>
   );
 };
-
+// 
 export default Footer;
