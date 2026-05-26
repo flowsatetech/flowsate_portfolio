@@ -16,8 +16,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Flowsate",
-  description: "Flowsaete Portfolio Website",
+  title: {
+    default: "Flowsate",
+    template: "%s | Flowsate",
+  },
+
+  description:
+    "Professional technology solutions for modern businesses. We transform ideas into powerful digital experiences that drive growth.",
+
+  metadataBase: new URL("https://flowsate.com"),
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  openGraph: {
+    title: "Flowsate",
+    description:
+      "Professional technology solutions for modern businesses.",
+    url: "https://flowsate.com",
+    siteName: "Flowsate",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Flowsate",
+    description:
+      "Professional technology solutions for modern businesses.",
+    images: ["/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
