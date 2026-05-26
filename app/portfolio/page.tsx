@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Projects from "@/components/Projects";
 import { Button } from "@/components/ui/button";
@@ -82,11 +83,20 @@ const Portfolio = () => {
           </div>
           <div className="mt-6 w-full">
             <TabsContent value="projects">
-              <Projects />
+              <Projects category="projects" />
             </TabsContent>
-            <TabsContent value="website">List of Websites</TabsContent>
-            <TabsContent value="application">List of Applications</TabsContent>
-            <TabsContent value="branding">List of Branding</TabsContent>
+
+            <TabsContent value="website">
+              <Projects category="website" />
+            </TabsContent>
+
+            <TabsContent value="application">
+              <Projects category="application" />
+            </TabsContent>
+
+            <TabsContent value="branding">
+              <Projects category="branding" />
+            </TabsContent>
           </div>
         </Tabs>
       </div>
@@ -97,12 +107,21 @@ const Portfolio = () => {
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-end w-full md:w-auto">
-            <Button className="bg-[#010066] text-white text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4">
-              Start Your Project
-            </Button>
-            <Button className="bg-[#e6e6e6] text-[#010066] text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4">
-              Our Services
-            </Button>
+           <Link href="/contact">
+              <Button
+                  className="bg-[#010066] text-white text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+              >
+                  Start Your Project
+              </Button>
+            </Link>
+
+            <Link href="/services">
+              <Button
+                  className="bg-[#e6e6e6] text-[#010066] text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+              >
+                  Our Services
+              </Button>
+            </Link>
           </div>
         </CardContent>
       </Card>

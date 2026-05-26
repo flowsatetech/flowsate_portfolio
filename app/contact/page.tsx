@@ -1,20 +1,142 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 
 const ContactUs = () => {
   const [state, handleSubmit] = useForm("mnngvnbg");
   const formRef = useRef<HTMLFormElement | null>(null);
 
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [messageLength, setMessageLength] = useState(0);
+
   useEffect(() => {
     if (state.succeeded && formRef.current) {
       formRef.current.reset();
+
+      setErrors({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+      setMessageLength(0);
     }
   }, [state.succeeded]);
 
+  const validateField = (
+    name: string,
+    value: string
+  ) => {
+    let error = "";
+
+    switch (name) {
+      case "name":
+        if (!value.trim()) {
+          error = "Name is required";
+        } else if (value.length < 2) {
+          error = "Name must be at least 2 characters";
+        } else if (!/^[A-Za-z\s]+$/.test(value)) {
+          error = "Only letters and spaces allowed";
+        }
+        break;
+
+      case "email":
+        if (!value.trim()) {
+          error = "Email is required";
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+        ) {
+          error = "Enter a valid email";
+        }
+        break;
+
+      case "phone":
+        if (
+          value &&
+          !/^\+?[0-9\s\-()]{7,20}$/.test(value)
+        ) {
+          error = "Enter valid phone number";
+        }
+        break;
+
+      case "message":
+        if (!value.trim()) {
+          error = "Message is required";
+        } else if (value.length < 10) {
+          error = "Message must be at least 10 characters";
+        } else if (value.length > 500) {
+          error = "Maximum 500 characters";
+        }
+        break;
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error,
+    }));
+
+    return !error;
+  };
+
+  const handleInput = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
+
+    validateField(name, value);
+
+    if (name === "message") {
+      setMessageLength(value.length);
+    }
+  };
+
+  const customSubmit = (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const name = (
+      form.elements.namedItem("name") as HTMLInputElement
+    ).value;
+
+    const email = (
+      form.elements.namedItem("email") as HTMLInputElement
+    ).value;
+
+    const phone = (
+      form.elements.namedItem("phone") as HTMLInputElement
+    ).value;
+
+    const message = (
+      form.elements.namedItem("message") as HTMLTextAreaElement
+    ).value;
+
+    const isValid =
+      validateField("name", name) &&
+      validateField("email", email) &&
+      validateField("phone", phone) &&
+      validateField("message", message);
+
+    if (isValid) {
+      handleSubmit(e);
+    }
+  };
+
   // Motion Variants
+
   const staggerContainer = {
     hidden: {},
     show: {
@@ -26,41 +148,61 @@ const ContactUs = () => {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
   };
+
   const fadeDown = {
     hidden: { opacity: 0, y: -40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
   };
+
   const fadeLeft = {
     hidden: { opacity: 0, x: 40 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
   };
+
   const fadeRight = {
     hidden: { opacity: 0, x: -40 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
   };
 
   return (
     <main className="min-h-screen md:h-auto bg-transparent mt-1">
-      {/* CONTACT FORM SECTION */}
       <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 justify-between sm:p-10 lg:p-15 pb-8 pt-8">
-        {/* Form */}
+
         <motion.div
           variants={fadeRight}
           initial="hidden"
           animate="show"
-          transition={{ delay: 0.2 }}
+          transition={{ delay: .2 }}
           className="order-2 md:order-1 flex-1 w-full md:w-1/2 bg-white p-8 rounded-sm"
         >
+
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="show"
             className="text-3xl font-bold mb-6"
           >
-            Reach out today and lets have a conversation!
+            Reach out today and let&apos;s have a conversation!
           </motion.h1>
+
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -71,37 +213,53 @@ const ContactUs = () => {
           </motion.p>
 
           {state.succeeded && (
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              className="text-green-600 mb-6"
-            >
-              Your message is on its way to us thank you! we&apos;ll respond
-              soon.
-            </motion.p>
+            <p className="text-green-600 mb-6">
+              Your message is on its way to us thank you!
+            </p>
           )}
 
           <motion.form
             ref={formRef}
+            noValidate
             className="space-y-4"
-            onSubmit={handleSubmit}
+            onSubmit={customSubmit}
             variants={staggerContainer}
             initial="hidden"
             animate="show"
           >
+
+            {/* NAME */}
+
             <motion.div variants={fadeLeft}>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium mb-1"
+              >
                 Name
               </label>
+
               <input
                 id="name"
                 type="text"
                 name="name"
-                placeholder="Enter your name"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter Your Full Name"
+                minLength={2}
+                onChange={handleInput}
+                title="Only letters allowed"
                 required
+                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.name
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name}
+                </p>
+              )}
+
               <ValidationError
                 prefix="Name"
                 field="name"
@@ -109,18 +267,37 @@ const ContactUs = () => {
               />
             </motion.div>
 
+            {/* EMAIL */}
+
             <motion.div variants={fadeRight}>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-1"
+              >
                 Email
               </label>
+
               <input
                 id="email"
                 type="email"
                 name="email"
-                placeholder="Enter your email"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="example@gmail.com"
+                onChange={handleInput}
+                title="Enter valid email"
                 required
+                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.email
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email}
+                </p>
+              )}
+
               <ValidationError
                 prefix="Email"
                 field="email"
@@ -128,18 +305,38 @@ const ContactUs = () => {
               />
             </motion.div>
 
+            {/* PHONE */}
+
             <motion.div variants={fadeUp}>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                Phone Number (Optional)
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium mb-1"
+              >
+                Phone Number
               </label>
+
               <input
                 id="phone"
                 type="tel"
                 name="phone"
-                placeholder="Enter phone number"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onChange={handleInput}
+                placeholder="+234123456789"
+                title="Include country code if needed"
+                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.phone
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.phone}
+                </p>
+              )}
             </motion.div>
+
+            {/* MESSAGE */}
 
             <motion.div variants={fadeLeft}>
               <label
@@ -148,14 +345,34 @@ const ContactUs = () => {
               >
                 Comment or Message
               </label>
+
               <textarea
                 id="message"
                 name="message"
-                placeholder="Leave a message"
+                placeholder="Hello, I would like to..."
                 rows={4}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                maxLength={500}
+                minLength={10}
+                onChange={handleInput}
+                title="Minimum 10 characters"
                 required
+                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.message
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+
+              <div className="text-right text-sm text-gray-500">
+                {messageLength}/500
+              </div>
+
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.message}
+                </p>
+              )}
+
               <ValidationError
                 prefix="Message"
                 field="message"
@@ -169,12 +386,14 @@ const ContactUs = () => {
               disabled={state.submitting}
               className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-[#010066] transition-all"
             >
-              {state.submitting ? "Sending..." : "Send Message"}
+              {state.submitting
+                ? "Sending..."
+                : "Send Message"}
             </motion.button>
+
           </motion.form>
         </motion.div>
 
-        {/* Form Image */}
         <motion.div
           variants={fadeLeft}
           initial="hidden"
@@ -182,8 +401,15 @@ const ContactUs = () => {
           transition={{ delay: 1.2 }}
           className="order-1 md:order-2 flex-1 w-full md:w-1/2 flex justify-center"
         >
-          <img src="/images/rafiki.svg" alt="Send message illustration" className="max-w-sm w-full h-auto" />
+          <Image
+            src="/images/rafiki.svg"
+            alt="Send message illustration"
+            width={500}
+            height={500}
+            className="max-w-sm w-full h-auto"
+          />
         </motion.div>
+
       </section>
 
       {/* SECOND SECTION */}
@@ -197,7 +423,13 @@ const ContactUs = () => {
           transition={{ delay: 0.2 }}
           className="order-2 md:order-1 w-full md:w-1/2 flex justify-center"
         >
-          <img src="/images/rafiki1.svg" alt="Get in touch illustration" className="max-w-sm w-full h-auto sm:pb-10" />
+          <Image
+            src="/images/rafiki1.svg"
+            alt="Get in touch illustration"
+            width={500}
+            height={500}
+            className="max-w-sm w-full h-auto sm:pb-10"
+            />
         </motion.div>
 
         {/* Contact Cards */}
@@ -245,7 +477,7 @@ const ContactUs = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Flowsate03@gmail.com
+                    flowsate03@gmail.com
                   </a>
                 </p>
               </div>

@@ -5,7 +5,7 @@ import WhyFlowsateSection from "@/components/why-flowsate-section";
 import ProjectsSection from "@/components/project-section";
 import TestimonialsSection from "@/components/testimonial-section";
 import ContactSection from "@/components/contact-section";
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
 const HomePage = () => {
   return (
     <>
@@ -20,4 +20,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;                                            
+export default HomePage;
