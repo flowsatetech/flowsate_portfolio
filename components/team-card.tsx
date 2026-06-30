@@ -15,7 +15,7 @@ const TeamCard = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
       {teamCard.map((team, index) => {
         return (
-          <Card key={index} className="w-full max-w-sm border-[#5BA0D7] ">
+          <Card key={index} className="w-full max-w-sm h-full flex flex-col border-[#5BA0D7]">
             <CardHeader className="flex flex-col items-center justify-between">
               <Avatar className="w-14 h-14">
                 <AvatarImage src={team.image} />
@@ -25,7 +25,7 @@ const TeamCard = () => {
               <p className="text-[#5BA0D7] font-medium text-normal">{team.job}</p>
               <p >{team.experience}</p>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent className="flex-1 text-center">
               <p className="font-medium mb-2">{team.expertise.title}:</p>
               <div className="flex flex-wrap justify-center gap-2">
                 {team.expertise.skills.map((skill, i) => (

@@ -24,7 +24,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, itemMinWidth = 250 }) => {
       {/* Left Button */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-2 z-10 hover:bg-gray-100 transition"
+        className="hidden lg:flex select-none absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-2 z-10 hover:bg-gray-100 transition"
         aria-label="Scroll Left"
       >
         ←
@@ -33,18 +33,21 @@ const Carousel: React.FC<CarouselProps> = ({ items, itemMinWidth = 250 }) => {
       {/* Right Button */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-2 z-10 hover:bg-gray-100 transition"
+        className="hidden lg:flex select-none absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-2 z-10 hover:bg-gray-100 transition"
         aria-label="Scroll Right"
       >
         →
       </button>
 
-      <div className="overflow-x-hidden scrollbar-hide py-4" ref={containerRef}>
+      <div
+        ref={containerRef}
+        className="overflow-x-auto py-4 scroll-smooth snap-x snap-mandatory hide-scrollbar-desktop"
+      >
         <div className="flex gap-6" style={{ minWidth: "max-content" }}>
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0"
+              className="flex-shrink-0 snap-center"
               style={{ minWidth: `${itemMinWidth}px` }}
             >
               {item}
