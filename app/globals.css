@@ -141,3 +141,28 @@
 .animate-slideUpFade {
   animation: slideUpFade 0.6s ease-out forwards;
 }
+
+/* Hide horizontal scrollbar on desktop only */
+@media (min-width: 1024px) {
+  .hide-scrollbar-desktop {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar-desktop::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+    background: transparent;
+  }
+
+  .hide-scrollbar-desktop::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  .hide-scrollbar-desktop::-webkit-scrollbar-track {
+    display: none;
+  }
+}

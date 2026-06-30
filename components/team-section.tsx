@@ -36,6 +36,8 @@ const TeamSection = () => (
               alt={member.name}
               width={180}
               height={220}
+              quality={70}
+              sizes="(max-width:768px) 180px, 220px"
               className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
             />
           </div>
