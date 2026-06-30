@@ -524,7 +524,7 @@ const ContactUs = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Follow Us</h3>
-                <p className="text-gray-600">flowsatetech</p>
+                <p className="text-gray-600">Flowsate</p>
               </div>
             </motion.div>
 
@@ -532,7 +532,7 @@ const ContactUs = () => {
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
                 <a
-                  href="https://www.instagram.com/flowsate03"
+                  href="https://www.instagram.com/flowsatetech"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -549,7 +549,7 @@ const ContactUs = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Follow Us</h3>
-                <p className="text-gray-600">@Flowsatetech_ng</p>
+                <p className="text-gray-600">@Flowsatetech</p>
               </div>
             </motion.div>
 
@@ -557,7 +557,7 @@ const ContactUs = () => {
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <div className="bg-[#010066] p-3 rounded-lg">
                 <a
-                  href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                  href="https://www.facebook.com/profile.php?id=61591378501967"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -572,7 +572,7 @@ const ContactUs = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Engage With Us</h3>
-                <p className="text-gray-600">Flowsate Tech Company</p>
+                <p className="text-gray-600">Flowsate Technology</p>
               </div>
             </motion.div>
           </div>

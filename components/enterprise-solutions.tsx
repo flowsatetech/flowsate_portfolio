@@ -22,7 +22,7 @@ const EnterpriseSolutions = () => {
             alt="award"
           />
           <p className="font-medium text-[#000] text-xs md:text-base">
-            Award-Winning Technology Solutions
+            Trusted Technology Partner
           </p>
         </CardContent>
       </Card>
@@ -38,10 +38,7 @@ const EnterpriseSolutions = () => {
       </div>
       <div className="mt-4 max-w-[875px]">
         <p className="text-black/65 font-medium text-xs md:text-xl">
-          Transform your business with cutting-edge technology solutions
-          designed for scale, security, and performance. We deliver
-          enterprise-grade applications that drive measurable growth and
-          operational excellence.
+          We design and build modern web, mobile, AI, and cloud solutions that help businesses streamline operations, improve customer experiences, and grow with confidence. Our focus is on quality, scalability, and long-term value.
         </p>
       </div>
       <div className="flex flex-col md:flex-row mt-4 gap-8">
@@ -51,7 +48,7 @@ const EnterpriseSolutions = () => {
         >
           <Calendar className="w-24 h-24" />
           <p className="text-white font-medium text-base">
-            Schedule Free Consultaion
+            Schedule a Free Consultation
           </p>
         </Button>
         {/* <Button className="bg-[#EFEFEF] text-black p-6">
@@ -61,12 +58,12 @@ const EnterpriseSolutions = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-1 md:gap-6 mt-4">
         <p className="text-black/46 font-medium text-base">
-          Trusted by Fortune 500 companies
+          We build high-quality software for growing businesses.
         </p>
         <p className="text-black/46 font-medium text-base">
-          ISO 27001 Certified
+          AI & Cloud Solutions
         </p>
-        <p className="text-black/46 font-medium text-base">99.9% Uptime</p>
+        <p className="text-black/46 font-medium text-base">Scalable & Secure Applications</p>
       </div>
 
       <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>

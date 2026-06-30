@@ -32,7 +32,7 @@ const AboutStory = () => (
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           className="text-base sm:text-lg leading-relaxed opacity-95"
         >
-          At <span className="text-[#010066] font-semibold">Flowsate</span>, we specialize in delivering smart, reliable, and modern tech services to both companies and individuals. Our mission is simple — to make technology work seamlessly for you. We combine innovation, expertise, and a customer-first approach to create tailored solutions that solve real problems, drive growth, and simplify digital experiences. Whether it’s building scalable systems, providing IT support, or helping businesses transform digitally, we are committed to excellence in everything we do. With a team of skilled professionals and a passion for innovation, Flowsate is more than just a service provider — we are your trusted partner in navigating today’s fast-moving digital world.
+          At <span className="text-[#010066] font-semibold">Flowsate</span>, we specialize in delivering smart, reliable, and modern tech services to both companies and individuals. Our mission is simple - to make technology work seamlessly for you. We combine innovation, expertise, and a customer-first approach to create tailored solutions that solve real problems, drive growth, and simplify digital experiences. Whether it’s building scalable systems, providing IT support, or helping businesses transform digitally, we are committed to excellence in everything we do. With a team of skilled professionals and a passion for innovation, Flowsate is more than just a service provider - we are your trusted partner in navigating today’s fast-moving digital world.
         </motion.p>
       </div>
     </div>

@@ -1,26 +1,26 @@
 export const serviceStats = [
   {
     icon: "/images/Star.png",
-    num: "500+",
+    num: "15+",
     title: "Projects Delivered",
-    desc: "+24%",
+    desc: "Successfully completed",
   },
   {
     icon: "/images/Check.png",
     num: "98%",
-    title: "Client Satisfaction",
-    desc: "+2%",
+    title: "Happy Clients",
+    desc: "Across industries",
   },
   {
     icon: "/images/Clock.png",
     num: "24/7",
     title: "Support Available",
-    desc: "Always",
+    desc: "Business hours & emergency response",
   },
   {
     icon: "/images/Bulbe.png",
-    num: "15+",
+    num: "2+",
     title: "Years Experience",
-    desc: "Since 2015",
+     desc: "Growing every day",
   },
 ];

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Github from "./icons/github";
 import Facebook from "./icons/facebook";
 import Tiktok from "./icons/tiktok";
+import Instagram from "./icons/instagram";
+import X from "./icons/x";
 
 const Footer = () => {
   return (
@@ -38,7 +39,7 @@ const Footer = () => {
               <li><Link href="/services" className="hover:text-[#010066]">UI/UX Design</Link></li>
               <li><Link href="/services" className="hover:text-[#010066]">Artificial Intelligence</Link></li>
               <li><Link href="/services" className="hover:text-[#010066]">Cloud Solutions</Link></li>
-              <li><Link href="/services" className="hover:text-[#010066]">Data Analytics</Link></li>
+              {/*<li><Link href="/services" className="hover:text-[#010066]">Data Analytics</Link></li>*/}
             </ul>
           </div>
 
@@ -93,37 +94,49 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="https://github.com/flowsatetech"
+                  href="https://x.com/flowsateo3"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Github"
+                  aria-label="X"
                   className="hover:text-[#010066]"
                 >
-                  <Github size="20"/>
+                  <X size="20" />
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="https://www.facebook.com/share/1LTnaz5EfJ/"
+                  href="https://www.instagram.com/flowsatetech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="hover:text-[#010066]"
+                >
+                  <Instagram size="20" />
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://www.facebook.com/profile.php?id=61591378501967"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="hover:text-[#010066]"
                 >
-                  <Facebook size="20"/>
+                  <Facebook size="20" />
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="https://www.tiktok.com"
+                  href="https://www.tiktok.com/@flowsatetech"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="TikTok"
                   className="hover:text-[#010066]"
                 >
-                  <Tiktok size="20"/>
+                  <Tiktok size="20" />
                 </Link>
               </li>
 
@@ -136,7 +149,7 @@ const Footer = () => {
 
       <div className="mt-10 border-t border-[#00000040] pt-6 text-center text-sm text-gray-400">
 
-        © {new Date().getFullYear()} Flowsate Technologies Inc.
+         © 2024–{new Date().getFullYear()} Flowsate Technologies Inc. All rights reserved.
 
       </div>
     </footer>

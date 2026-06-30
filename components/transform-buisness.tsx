@@ -69,11 +69,11 @@ const TransformBusiness = () => {
           >
             <Calendar className="w-6 h-6 mr-2" />
             <p className="text-white font-medium text-base">
-              Schedule Free Consultation
+              Schedule a Free Consultation
             </p>
           </Button>
           <Button className="bg-[#EFEFEF] text-black p-6 w-80 hover:bg-gray-200 transition-colors">
-            <p className="text-black font-medium text-base">Get Custom Quote</p>
+            <p className="text-black font-medium text-base">Get a Custom Quote</p>
           </Button>
         </div>
         <p className="text-white mt-10 font-medium text-lg">

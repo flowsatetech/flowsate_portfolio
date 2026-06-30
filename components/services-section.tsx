@@ -33,12 +33,16 @@ const services = [
     description:
       "Migrated legacy systems to the cloud, saving clients up to 40% in annual infrastructure costs.",
   },
+
+/*
   {
     icon: <Image src={icon4} alt="Data Analytics Icon" width={48} height={48} className="w-12 h-12" />,
     title: "Data Analytics",
     description:
       "Transformed raw data into insights that helped clients make smarter decisions and increase ROI by 25%.",
   },
+*/
+
   {
     icon: <Image src={icon5} alt="Branding Icon" width={48} height={48} className="w-12 h-12" />,
     title: "Branding",

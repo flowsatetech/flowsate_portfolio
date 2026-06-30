@@ -25,7 +25,7 @@ const JoinTeam = () => {
         <p className="mb-6 max-w-3xl">
           At <span className="text-[#010066] font-semibold">Flowsate</span> we
           believe people are our greatest strength. We foster a culture of
-          innovation, collaboration, and growth—where every idea counts and
+          innovation, collaboration, and growth - where every idea counts and
           every contribution matters. Join us to build impactful solutions and
           grow your career in a team that values excellence and purpose.
         </p>
