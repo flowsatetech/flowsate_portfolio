@@ -39,7 +39,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, itemMinWidth = 250 }) => {
         →
       </button>
 
-      <div className="overflow-x-auto scrollbar-hide py-4" ref={containerRef}>
+      <div className="overflow-x-hidden scrollbar-hide py-4" ref={containerRef}>
         <div className="flex gap-6" style={{ minWidth: "max-content" }}>
           {items.map((item, idx) => (
             <div

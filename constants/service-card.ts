@@ -22,10 +22,10 @@ export const serviceCard = [
       },
     ],
     description:
-      "User-centered design solutions that combines aesthetic excellence with functional usability",
+      "User-centered UI/UX design that combines intuitive experiences with modern, accessible interfaces.",
     timeline: "4-8 weeks",
     complexity: "Medium",
-    technologies: ["Figma", "Adobe", "Sketch", "+3more"],
+    technologies: ["Figma", "Adobe", "Sketch", "more..."],
   },
   {
     backgrounndImage: "/images/web-card-back.png",
@@ -51,10 +51,10 @@ export const serviceCard = [
       
     ],
     description:
-      "Enterprise-grade web application built with cutting-edge technologies and cutting-edge architecture",
+      "Enterprise-grade web application built with cutting-edge modern technologies, scalable architecture, and best development practices.",
     timeline: "16-24 weeks",
     complexity: "High",
-    technologies: ["React", "Next.js", "Node.js", "+3more"],
+    technologies: ["React", "Next.js", "Node.js", "more..."],
   },
   {
     backgrounndImage: "/images/cloud-card-back.png",
@@ -79,10 +79,10 @@ export const serviceCard = [
       },
     ],
     description:
-      "Scalable cloud infrastructure and migration services for modern businesses",
+      "Cloud infrastructure, deployment, and migration services designed for secure, scalable, and reliable applications.",
     timeline: "6-12 weeks",
     complexity: "High",
-    technologies: ["AWS", "Azure", "GCP", "+3more"],
+    technologies: ["AWS", "Docker", "Vercel", "more..."],
   },
   {
     backgrounndImage: "/images/mobile-card-back.png",
@@ -91,11 +91,11 @@ export const serviceCard = [
     type: [
       {
         image: "/images/arrow.png",
-        title: "IOS & Andriod",
+        title: "iOS & Android",
       },
       {
         image: "/images/arrow.png",
-        title: "React native",
+        title: "React Native",
       },
       {
         image: "/images/arrow.png",
@@ -110,7 +110,7 @@ export const serviceCard = [
       "Enterprise-grade web application built with cutting-edge technologies and cutting-edge architecture",
     timeline: "16-24 weeks",
     complexity: "High",
-    technologies: ["React Native", "Flutter", "Swift", "+3more"],
+    technologies: ["React Native", "Flutter", "Swift", "more..."],
   },
   {
     backgrounndImage: "/images/brand-card-back.png",
@@ -135,11 +135,12 @@ export const serviceCard = [
       },
     ],
     description:
-      "Strategic technology consulting and modernize business operations and driven growth",
+      "Create a memorable brand identity with logos, visual systems, brand guidelines, and marketing assets.",
     timeline: "2-4 weeks",
-    complexity: "low",
-    technologies: ["Canva", "Ps", "Illustrator", "+3more"],
+    complexity: "Low",
+    technologies: ["Canva", "Ps", "Illustrator", "more..."],
   },
+  /*
   {
     backgrounndImage: "/images/data-card-back.png",
     icon: "/images/analytics.png",
@@ -168,6 +169,8 @@ export const serviceCard = [
     complexity: "High",
     technologies: ["Power Bi", "Tableau", "Python", "+3more"],
   },
+*/
+
   {
     backgrounndImage: "/images/AI-card-back.png",
     icon: "/images/ai.png",
@@ -191,9 +194,9 @@ export const serviceCard = [
       },
     ],
     description:
-      "We use the most modern tools for A.I to make scalable A.I models ",
+      "Build intelligent applications using machine learning, generative AI, automation, and custom AI integrations. ",
     timeline: "10-18 weeks",
     complexity: "High",
-    technologies: ["Python", "Django", "SQL", "+3more"],
+    technologies: ["Python", "OpenAI", "LangChain", "more..."],
   },
 ];
