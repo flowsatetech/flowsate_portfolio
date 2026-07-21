@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import icon1 from "@/public/images/icon1.png";
-import icon2 from "@/public/images/icon2.png";
-import icon3 from "@/public/images/icon3.png";
-import icon4 from "@/public/images/icon4.png";
-import icon5 from "@/public/images/icon5.png";
+import icon1 from "@/public/images/icon1.webp";
+import icon2 from "@/public/images/icon2.webp";
+import icon3 from "@/public/images/icon3.webp";
+import icon4 from "@/public/images/icon4.webp";
+import icon5 from "@/public/images/icon5.webp";
 
 const services = [
   {
@@ -46,7 +46,7 @@ const services = [
   {
     icon: <Image src={icon5} alt="Branding Icon" width={48} height={48} className="w-12 h-12" />,
     title: "Branding",
-    img: "/images/branding.png",
+    img: "/images/branding.webp",
     points: ["Logo design", "Brand guidelines", "Color palettes & typography", "Brand voice development"],
     description:
       "Complete brand identity solutions that make your buisness standout from the competition.",

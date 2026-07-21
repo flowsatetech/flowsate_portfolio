@@ -8,7 +8,7 @@ const AboutStory = () => (
       {/* Background */}
       <div className="absolute inset-0 opacity-40">
         <Image
-          src="/images/about-bg.png"
+          src="/images/about-bg.webp"
           alt="About background"
           fill
           className="object-cover"

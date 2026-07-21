@@ -17,7 +17,7 @@ interface ContactFormSectionProps {
 const ContactFormSection: React.FC<ContactFormSectionProps> = ({
   title = "Let’s Work Together",
   buttonText = "Submit",
-  imageSrc = "/images/contact-illustration.png",
+  imageSrc = "/images/contact-illustration.webp",
   imageAlt = "Contact Illustration",
 }) => {
   const [state, handleSubmit] = useForm("mnngvnbg");

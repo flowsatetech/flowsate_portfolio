@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Flowsate Company Website",
     description: "Official website for Flowsate showcasing services, projects, and company portfolio.",
-    image: "/images/project 6.jpeg",
+    image: "/images/project 6.webp",
     liveDemo: "https://flowsate.com", // your real project
     github: "",
     tags: ["Company", "Web App"],
@@ -15,7 +15,7 @@ const projects = [
   {
     title: "Kyriantech company Website",
     description: "Where you get your Afforadable and Quality Gadgets .",
-    image: "/images/project 7.jpeg",
+    image: "/images/project 7.webp",
     liveDemo: "https://kyriantech.net",
     github: "",
     tags: ["E-commerce"],
@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Financial App",
     description: "Mobile banking application with secure transactions and budgeting tools.",
-    image: "/images/project.png",
+    image: "/images/project.webp",
     liveDemo: "",
     github: "",
     tags: ["Fintech"],
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "Learning Management System",
     description: "Educational platform connecting students and instructors worldwide.",
-    image: "/images/project.png",
+    image: "/images/project.webp",
     liveDemo: "",
     github: "",
     tags: ["EdTech"],

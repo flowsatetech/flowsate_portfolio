@@ -1,6 +1,6 @@
 export const teamCard = [
   {
-    image: "/images/alex.png",
+    image: "/images/alex.webp",
     name: "Alex Thompson",
     job: "Lead Architect",
     experience: "12+ years",
@@ -14,7 +14,7 @@ export const teamCard = [
     }
   },
   {
-    image: "/images/chisome.png",
+    image: "/images/chisome.webp",
     name: "Chisome moses",
     job: "Lead Designer ",
     experience: "16+ years",
@@ -28,7 +28,7 @@ export const teamCard = [
     }
   },
   {
-    image: "/images/david.png",
+    image: "/images/david.webp",
     name: "David Kim",
     job: "Full-Stack Developer",
     experience: "7 + years",

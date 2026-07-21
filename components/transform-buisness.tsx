@@ -5,19 +5,26 @@ import { buisnessCard } from "@/constants/buisness-card";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { Calendar, Download } from "lucide-react";
-import { Dialog, DialogContent } from "./ui/dialog";
+import { Calendar } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
+import QuoteModal from "@/components/QuoteModal";
 
 const TransformBusiness = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const calendlyUrl = "https://calendly.com/flowsatedevteams/30min";
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   return (
     <div
       className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed py-30"
       style={{
-        backgroundImage: "url('/images/transform-buisness-background.png')",
+        backgroundImage: "url('/images/transform-buisness-background.webp')",
       }}
     >
       <div className="flex flex-col items-center justify-center text-center px-4 py-8">
@@ -72,8 +79,13 @@ const TransformBusiness = () => {
               Schedule a Free Consultation
             </p>
           </Button>
-          <Button className="bg-[#EFEFEF] text-black p-6 w-80 hover:bg-gray-200 transition-colors">
-            <p className="text-black font-medium text-base">Get a Custom Quote</p>
+          <Button
+            className="bg-[#EFEFEF] text-black p-6 w-80 hover:bg-gray-200 transition-colors"
+            onClick={() => setQuoteOpen(true)}
+          >
+            <p className="text-black font-medium">
+              Get a Custom Quote
+            </p>
           </Button>
         </div>
         <p className="text-white mt-10 font-medium text-lg">
@@ -82,19 +94,34 @@ const TransformBusiness = () => {
       </div>
 
       <Dialog open={isCalendlyOpen} onOpenChange={setIsCalendlyOpen}>
-        <DialogContent className="max-w-4xl h-[80vh] sm:h-[90vh] p-0 border-0">
-          <div className="w-full h-full">
+        <DialogContent
+          showCloseButton={false}
+          className="max-w-4xl h-[80vh] sm:h-[90vh] p-0 border-0"
+        >
+
+          <DialogHeader className="sr-only">
+            <DialogTitle>
+              Schedule a Free Consultation
+            </DialogTitle>
+          </DialogHeader>
+
+          {isCalendlyOpen && (
             <iframe
-              src={calendlyUrl}
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              title="Schedule Free Consultation"
-              className="rounded-lg"
+                src={calendlyUrl}
+                width="100%"
+                height="100%"
+                title="Schedule a Free Consultation"
+                className="rounded-lg"
             />
-          </div>
+        )}
+
         </DialogContent>
       </Dialog>
+      <QuoteModal
+        open={quoteOpen}
+        onOpenChange={setQuoteOpen}
+      />
+
     </div>
   );
 };

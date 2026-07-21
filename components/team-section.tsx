@@ -3,14 +3,14 @@ import Image from "next/image";
 import Carousel from "@/components/carousel";
 
 const teamMembers = [
-  { name: "Onuora Ruth", role: "Founder / COO", image: "/images/team1.png" },
-  { name: "Mattia Lavai", role: "PM Support / Operations", image: "/images/team2.png" },
-  { name: "Sifan Yemane", role: " Frontend Lead", image: "/images/team3.jpeg" },
-  { name: "Ayomide Jolaoso", role: "Design Lead", image: "/images/team4.png" },
-  { name: "Sandra Olisama", role: "DevOps Engineer Lead", image: "/images/team5.jpeg" },
-  { name: "Onasoga Emmanuel", role: "Backend Lead", image: "/images/team6.jpeg" },
-  { name: "Sharon Jebet Bungei", role: "Growth Lead", image: "/images/team7.png" },
-  { name: "Esirioghene Joshua", role: "QA Engineer Lead", image: "/images/team8.jpeg" },
+  { name: "Onuora Ruth", role: "Founder / COO", image: "/images/team1.webp" },
+  { name: "Mattia Lavai", role: "PM Support / Operations", image: "/images/team2.webp" },
+  { name: "Sifan Yemane", role: " Frontend Lead", image: "/images/team3.webp" },
+  { name: "Ayomide Jolaoso", role: "Design Lead", image: "/images/team4.webp" },
+  { name: "Sandra Olisama", role: "DevOps Engineer Lead", image: "/images/team5.webp" },
+  { name: "Onasoga Emmanuel", role: "Backend Lead", image: "/images/team6.webp" },
+  { name: "Sharon Jebet Bungei", role: "Growth Lead", image: "/images/team7.webp" },
+  { name: "Esirioghene Joshua", role: "QA Engineer Lead", image: "/images/team8.webp" },
 ];
 
 const TeamSection = () => (

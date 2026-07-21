@@ -13,7 +13,7 @@ const Footer = () => {
 
         <div className="md:col-span-2">
           <Image
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="Flowsate logo"
             width={150}
             height={50}

@@ -3,25 +3,25 @@ import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-import test1 from "@/public/images/test1.jpg"
-import test2 from "@/public/images/test2.jpg"
-import test4 from "@/public/images/test4.jpg"
+import emmanuel from "@/public/images/emmanuel.webp"
+import martha from "@/public/images/martha.webp"
+import fatima from "@/public/images/fatima.webp"
 
 const testimonials = [
   {
-    name: "Jane Doe",
-    text: "Flowsate transformed our digital presence with precision and creativity. The team delivered on time and exceeded expectations.",
-    image: test1,
+    name: "Emmannuel Ugochukwu",
+    text: "Flowsate transformed our entire digital infrastructure. Their expertise in cloud migration and process automation helped us reduce operational costs by 40% while improving efficiency.",
+    image: emmanuel,
   },
   {
-    name: "John Smith",
-    text: "Their professionalism and attention to detail were outstanding. I’ve never worked with a team this reliable before.",
-    image: test2,
+    name: "Martha Eze",
+    text: "The e-commerce platform they built for us exceeded all expectations. We saw a 300% increase in online sales within the first quarter after launch.",
+    image: martha,
   },
   {
-    name: "Sarah Lee",
-    text: "Exceptional quality, clear communication, and outstanding results. I highly recommend their services.",
-    image: test4,
+    name: "Fatima Ibrahim",
+    text: "Their UI/UX design work completely transformed our user experience. Customer satisfaction scores improved by 45% and user engagement doubled.",
+    image: fatima,
   },
 ]
 

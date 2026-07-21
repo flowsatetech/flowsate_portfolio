@@ -402,7 +402,7 @@ const ContactUs = () => {
           className="order-1 md:order-2 flex-1 w-full md:w-1/2 flex justify-center"
         >
           <Image
-            src="/images/rafiki.svg"
+            src="/images/rafiki.webp"
             alt="Send message illustration"
             width={500}
             height={500}
@@ -424,7 +424,7 @@ const ContactUs = () => {
           className="order-2 md:order-1 w-full md:w-1/2 flex justify-center"
         >
           <Image
-            src="/images/rafiki1.svg"
+            src="/images/rafiki1.webp"
             alt="Get in touch illustration"
             width={500}
             height={500}

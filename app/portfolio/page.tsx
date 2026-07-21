@@ -13,7 +13,7 @@ const Portfolio = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url("/images/card-background.png")`,
+              backgroundImage: `url("/images/card-background.webp")`,
             }}
           ></div>
 

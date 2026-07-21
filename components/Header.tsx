@@ -16,7 +16,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex-shrink-0">
           <div className="text-2xl md:text-3xl font-bold text-[#010066]">
-            <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+            <Image src="/images/logo.webp" alt="Logo" width={100} height={100} />
           </div>
         </Link>
 

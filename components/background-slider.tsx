@@ -23,7 +23,7 @@ export default function BackgroundSlider() {
       >
         <SwiperSlide>
           <Image
-            src="/images/Rectangle1.png" 
+            src="/images/Rectangle1.webp" 
             alt="Slide 1" 
             className="slide-background"
             fill
@@ -33,7 +33,7 @@ export default function BackgroundSlider() {
         
         <SwiperSlide>
           <Image
-            src="/images/software-development.png" 
+            src="/images/software-development.webp" 
             alt="Slide 2" 
             className="slide-background"
             fill
@@ -43,7 +43,7 @@ export default function BackgroundSlider() {
 
          <SwiperSlide>
           <Image
-            src="/images/production.png" 
+            src="/images/production.webp" 
             alt="Slide 3" 
             className="slide-background"
             fill
@@ -53,7 +53,7 @@ export default function BackgroundSlider() {
         
         <SwiperSlide>
           <Image
-            src="/images/SEO.png" 
+            src="/images/SEO.webp" 
             alt="Slide 4" 
             className="slide-background"
             fill
@@ -63,7 +63,7 @@ export default function BackgroundSlider() {
         
         <SwiperSlide>
           <Image 
-            src="/images/consultancy-service.png" 
+            src="/images/consultancy-service.webp" 
             alt="Slide 5" 
             className="slide-background"
             fill

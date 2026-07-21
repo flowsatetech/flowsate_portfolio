@@ -26,7 +26,7 @@ const Stats = () => {
         const shouldAnimate = stat.num !== "24/7";
         
         return (
-          <StatItem 
+          <StatItem
             key={index}
             stat={stat}
             shouldAnimate={shouldAnimate}
