@@ -65,11 +65,11 @@ const WhyFlowsateSection = () => {
             className="relative w-full h-64 lg:h-[350px] rounded-2xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/images/tech.png"
+              src="/images/tech.webp"
               alt="Why Flowsate"
               fill
               className="object-cover"
-              priority
+              loading="lazy"
             />
           </motion.div>
 

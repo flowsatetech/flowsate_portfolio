@@ -1,14 +1,14 @@
 export const certificateCard = [
     {
-        image: "/images/amazon.png",
+        image: "/images/amazon.webp",
         title: "AWS Advanced Consulting Partner"
     },
     {
-        image: "/images/badge.png",
+        image: "/images/badge.webp",
         title: "Microsoft Gold Partner"
     },
     {
-        image: "/images/world-web.png",
+        image: "/images/world-web.webp",
         title: "Salesforce Partner"
     }
 ]

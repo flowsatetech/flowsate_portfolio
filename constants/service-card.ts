@@ -1,23 +1,23 @@
 export const serviceCard = [
   {
-    backgrounndImage: "/images/ui-card-back.png",
-    icon: "/images/ui.png",
+    backgrounndImage: "/images/ui-card-back.webp",
+    icon: "/images/ui.webp",
     title: "UI/UX Design",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "User Research",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Prototyping",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Design System",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Usability Testing",
       },
     ],
@@ -28,24 +28,24 @@ export const serviceCard = [
     technologies: ["Figma", "Adobe", "Sketch", "more..."],
   },
   {
-    backgrounndImage: "/images/web-card-back.png",
-    icon: "/images/web.png",
+    backgrounndImage: "/images/web-card-back.webp",
+    icon: "/images/web.webp",
     title: "Web Development",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "React/Next.js",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Node.js Backend",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Database",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "API Integration",
       },
       
@@ -57,24 +57,24 @@ export const serviceCard = [
     technologies: ["React", "Next.js", "Node.js", "more..."],
   },
   {
-    backgrounndImage: "/images/cloud-card-back.png",
-    icon: "/images/cloud.png",
+    backgrounndImage: "/images/cloud-card-back.webp",
+    icon: "/images/cloud.webp",
     title: "Cloud Solutions",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Cloud Migration",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "DevOps Setup",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Monitoring",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Maintenance",
       },
     ],
@@ -85,24 +85,24 @@ export const serviceCard = [
     technologies: ["AWS", "Docker", "Vercel", "more..."],
   },
   {
-    backgrounndImage: "/images/mobile-card-back.png",
-    icon: "/images/web.png",
+    backgrounndImage: "/images/mobile-card-back.webp",
+    icon: "/images/web.webp",
     title: "Mobile Development",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "iOS & Android",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "React Native",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Flutter",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Play Store/App Store Deployment",
       },
     ],
@@ -113,24 +113,24 @@ export const serviceCard = [
     technologies: ["React Native", "Flutter", "Swift", "more..."],
   },
   {
-    backgrounndImage: "/images/brand-card-back.png",
-    icon: "/images/ui.png",
+    backgrounndImage: "/images/brand-card-back.webp",
+    icon: "/images/ui.webp",
     title: "Branding",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Creating Visuals",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Color Palette",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Cohesive brand story",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Tech Strategy",
       },
     ],
@@ -172,24 +172,24 @@ export const serviceCard = [
 */
 
   {
-    backgrounndImage: "/images/AI-card-back.png",
-    icon: "/images/ai.png",
+    backgrounndImage: "/images/AI-card-back.webp",
+    icon: "/images/ai.webp",
     title: "Artificial Intelligence",
     type: [
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Model Training",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Machine Learning",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Deep Learning",
       },
       {
-        image: "/images/arrow.png",
+        image: "/images/arrow.webp",
         title: "Maintenance",
       },
     ],

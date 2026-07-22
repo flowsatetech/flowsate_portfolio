@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { teamCard } from "@/constants/team-card";
-import Image from "next/image";
+//import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const TeamCard = () => {

@@ -16,7 +16,7 @@ const EnterpriseSolutions = () => {
       <Card className="border-[#A1E0F985] ">
         <CardContent className="flex items-center gap-2">
           <Image
-            src="/images/tabler_award.png"
+            src="/images/tabler_award.webp"
             width={33}
             height={33}
             alt="award"

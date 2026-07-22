@@ -14,7 +14,7 @@ const BlueprintSection = () => {
       title: "Mission",
       description:
         "Our mission is to design, develop, and secure websites that empower businesses to thrive online.",
-      bgImage: "/images/blue-wave.jpg",
+      bgImage: "/images/blue-wave.webp",
       icon: "/images/mission-icon.png",
       iconBg: "bg-blue-600",
     },
@@ -22,7 +22,7 @@ const BlueprintSection = () => {
       title: "Vision",
       description:
         "Our vision is to create impactful solutions that transform businesses and help them grow.",
-      bgImage: "/images/yellow-wave.jpg",
+      bgImage: "/images/yellow-wave.webp",
       icon: "/images/vision-icon.png",
       iconBg: "bg-yellow-500",
     },
@@ -30,7 +30,7 @@ const BlueprintSection = () => {
       title: "Values",
       description:
         "Our values focus on innovation, collaboration, and excellence in everything we do.",
-      bgImage: "/images/red-wave.jpg",
+      bgImage: "/images/red-wave.webp",
       icon: "/images/values-icon.png",
       iconBg: "bg-red-600",
     },

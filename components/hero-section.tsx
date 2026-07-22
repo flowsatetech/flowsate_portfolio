@@ -1,9 +1,8 @@
-"use client"
 
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+//import { motion } from "framer-motion"
 
 const HeroSection = () => {
   return (
@@ -11,11 +10,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left side - Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           <p className="text-sm uppercase tracking-wide text-gray-500 mb-3">
             Best Tech Company
           </p>
@@ -48,44 +43,32 @@ const HeroSection = () => {
             </Button>
 
           </div>
-        </motion.div>
+        </div>
 
         {/* Right side - Image */}
-        <motion.div
-          className="flex justify-center md:justify-end relative"
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9 }}
-        >
+        <div className="flex justify-center md:justify-end relative">
           <div className="rounded-[2rem] overflow-hidden shadow-2xl">
             <Image
-              src="/images/background2.png"
+              src="/images/background2.webp"
               alt="Team working together"
               width={450}
               height={400}
-              className="object-cover rounded-[2rem]"
               priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 90vw, 450px"
+              className="rounded-[2rem] object-cover"
             />
           </div>
-        </motion.div>
+        </div>
 
       </div>
 
       {/* Soft overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none"></div>
+       <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none" />
 
-      {/* Floating blobs animation */}
-      <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ repeat: Infinity, duration: 6 }}
-        className="absolute top-20 -left-16 w-64 h-64 bg-[#010066]/10 rounded-full blur-3xl"
-      ></motion.div>
+       <div className="absolute top-20 -left-16 w-64 h-64 bg-[#010066]/10 rounded-full blur-3xl" />
 
-      <motion.div
-        animate={{ y: [0, 20, 0] }}
-        transition={{ repeat: Infinity, duration: 7 }}
-        className="absolute bottom-20 -right-16 w-72 h-72 bg-[#010066]/10 rounded-full blur-3xl"
-      ></motion.div>
+       <div className="absolute bottom-20 -right-16 w-72 h-72 bg-[#010066]/10 rounded-full blur-3xl" />
 
     </section>
   )

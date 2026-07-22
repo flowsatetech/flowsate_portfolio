@@ -21,7 +21,7 @@ const ClientCard = () => {
                 {[...Array(client.stars)].map((_, i) => (
                   <Image
                     key={i}
-                    src="/images/star.png"
+                    src="/images/Star.webp"
                     width={16.67}
                     height={16.67}
                     alt="star"

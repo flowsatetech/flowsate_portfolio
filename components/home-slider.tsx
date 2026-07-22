@@ -1,73 +1,90 @@
 "use client";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
+
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import "../app/test/styles.css";
+const slides = [
+  "/images/tech1.webp",
+  "/images/tech2.webp",
+  "/images/tech3.webp",
+  "/images/tech4.webp",
+  "/images/tech5.webp",
+];
 
-// Import required modules
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
-
-const HomeSlider = () => {
-  const slides = [
-    "/images/tech1.jpeg",
-    "/images/tech2.jpeg",
-    "/images/tech3.jpeg",
-    "/images/tech4.jpeg",
-    "/images/tech5.jpeg"
-  ];
-
-  const middleSlideIndex = Math.floor(slides.length / 2);
-  const [activeIndex, setActiveIndex] = useState(middleSlideIndex);
-
+export default function HomeSlider() {
   return (
-    <Swiper
-      effect={"coverflow"}
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={"auto"}
-      initialSlide={middleSlideIndex}
-      loop={true}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
+    <section className="w-full overflow-hidden">
+      <Swiper
+        modules={[EffectCoverflow, Pagination, Autoplay]}
+        effect="coverflow"
+        centeredSlides={true}
+        loop={true}
+        grabCursor={true}
+        speed={900}
+        watchSlidesProgress={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+          waitForTransition: true,
       }}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }}
-      modules={[EffectCoverflow, Pagination, Autoplay]}
-      className="mySwiper"
-      pagination={{ clickable: true }}
-      onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-    >
-      {slides.map((slide, index) => (
-        <SwiperSlide
-          key={index}
-          className={`flex justify-center items-center transition-opacity duration-700 ${
-            index === activeIndex ? "opacity-100 scale-100" : "opacity-50 scale-90"
-          }`}
-        >
-          <Image
-            src={slide}
-            alt={`Slide ${index + 1}`}
-            width={500}
-            height={500}
-            className="object-cover rounded-lg transition-all duration-700"
-            unoptimized
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        pagination={{
+          clickable: true,
+        }}
+        slidesPerView={3}
+        spaceBetween={-80}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+            spaceBetween: -130,
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: -110,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: -90,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: -70,
+          },
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: -50,
+          },
+        }}
+        coverflowEffect={{
+          rotate: 35,
+          stretch: 0,
+          depth: 320,
+          modifier: 1.8,
+          scale: 0.88,
+          slideShadows: false,
+        }}
+        className="mySwiper"
+      >
+        {slides.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div className="slide-card">
+              <Image
+                src={image}
+                alt={`Technology ${index + 1}`}
+                fill
+                priority={index === 0}
+                className="object-cover rounded-[28px]"
+                unoptimized
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
   );
-};
-
-export default HomeSlider;
+}

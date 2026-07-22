@@ -74,23 +74,19 @@ const ContactSection = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
-    const updatedData = {
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    };
+    }));
 
-    setFormData(updatedData);
-
-    setErrors({
-      ...errors,
+    setErrors((prev) => ({
+      ...prev,
       [name]: validateField(name, value),
-    });
+    }));
   };
 
   useEffect(() => {
