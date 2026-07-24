@@ -147,10 +147,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-[#00000040] pt-6 text-center text-sm text-gray-400">
-
-         © 2024–{new Date().getFullYear()} Flowsate Technologies Inc. All rights reserved.
-
+      <div className="mt-10 border-t border-[#00000040] pt-6 text-center text-[11px] sm:text-xs md:text-sm text-gray-400">
+        © 2024–{new Date().getFullYear()} Flowsate Technologies Inc. All rights reserved.
       </div>
     </footer>
   );

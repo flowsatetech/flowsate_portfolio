@@ -52,7 +52,7 @@ function AnimatedCard({
 
 const ServiceCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+    <div className="py-10 grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
       {serviceCard?.map((service, index) => {
         // Alternate directions for cards
         const direction = index % 2 === 0 ? "left" : "right";

@@ -37,7 +37,7 @@ const BlueprintSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-10 px-6 bg-white">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-semibold text-gray-900 mb-4">
           Our Blueprint

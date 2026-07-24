@@ -31,7 +31,7 @@ const EnterpriseSolutions = () => {
           <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug text-black/65">
             Enterprise Solutions for
           </h1>
-          <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug text-[#5BA0D7]">
+          <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl leading-tight md:leading-snug text-[#010066]">
             Digital Excellence
           </h1>
         </div>
@@ -43,7 +43,7 @@ const EnterpriseSolutions = () => {
       </div>
       <div className="flex flex-col md:flex-row mt-4 gap-8">
         <Button
-          className="bg-[#5BA0D7] p-6 cursor:pointer"
+          className="text-white bg-[#010066] hover:bg-[#414141] p-6 cursor:pointer"
           onClick={() => setIsCalendlyOpen(true)}
         >
           <Calendar className="w-24 h-24" />

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 interface CareerFormProps {
@@ -8,100 +7,62 @@ interface CareerFormProps {
 }
 
 const CareerForm = ({ onClose }: CareerFormProps) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    reason: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("https://formspree.io/f/mnngvnbg", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", reason: "" });
-        setTimeout(() => {
-          setSubmitted(false);
-          onClose();
-        }, 3000);
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Oops! Something went wrong. Please try again.");
-    }
-  };
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
-      <div className="bg-white w-full max-w-md rounded-xl shadow-xl p-6 relative">
-        {/* CLOSE BUTTON */}
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 sm:p-6"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl p-6 sm:p-8 md:p-10 animate-in fade-in zoom-in-95 duration-300"
+      >
+        {/* Close Button */}
         <button
-          type="button"
           onClick={onClose}
-          className="absolute top-3 right-4 text-2xl font-bold text-gray-600 hover:text-black"
+          aria-label="Close"
+          className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full text-2xl text-gray-500 transition hover:bg-gray-100 hover:text-black"
         >
           ×
         </button>
 
-        <h2 className="text-xl font-semibold text-center mb-4 text-[#010066]">
-          Start Your Journey With Flowsate
+        {/* Icon */}
+        <div className="mb-6 flex justify-center">
+          <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#010066]/10">
+            <span className="text-2xl sm:text-3xl">💼</span>
+          </div>
+        </div>
+
+        {/* Heading */}
+        <h2 className="text-center text-xl sm:text-2xl font-semibold text-[#010066]">
+          Careers at Flowsate
         </h2>
 
-        <form className="space-y-3" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full border border-gray-300 text-gray-900 rounded-md p-2.5 text-sm"
-            required
-          />
+        {/* Description */}
+        <p className="mt-5 text-center text-sm sm:text-base leading-7 text-gray-600">
+          Thank you for your interest in joining <strong>Flowsate</strong>.
+          We are not actively recruiting at the moment, but we&apos;re always
+          excited to connect with talented professionals who share our passion
+          for innovation and technology.
+        </p>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full border border-gray-300 text-gray-900 rounded-md p-2.5 text-sm"
-            required
-          />
+        <p className="mt-4 text-center text-sm sm:text-base leading-7 text-gray-600">
+          As we continue to grow, future career opportunities will be announced
+          on our website and official social media channels.
+        </p>
 
-          <textarea
-            name="reason"
-            placeholder="Why do you want to join Flowsate?"
-            rows={3}
-            value={formData.reason}
-            onChange={handleChange}
-            className="w-full border border-gray-300 text-gray-900 rounded-md p-2.5 text-sm"
-            required
-          />
+        <p className="mt-4 text-center text-sm sm:text-base text-gray-600">
+          We appreciate your interest and hope to work with you in the future.
+        </p>
 
-          <Button type="submit" className="w-full bg-[#4579A4] text-white py-2.5 hover:bg-[#4579A4]/90">
-            Submit Application
+        {/* Button */}
+        <div className="mt-8 flex justify-center">
+          <Button
+            onClick={onClose}
+            className="w-full sm:w-56 h-11 sm:h-12 bg-[#010066] text-white hover:bg-[#414141]"
+          >
+            Close
           </Button>
-        </form>
-
-        {submitted && (
-          <div className="mt-4 text-center text-gray-600 font-semibold">
-            Application submitted successfully!
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );

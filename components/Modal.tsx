@@ -18,6 +18,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
   const [state, handleSubmit] = useForm("mnngvnbg"); // Replace with your Formspree ID
   const formRef = useRef<HTMLFormElement | null>(null);
   const firstInputRef = useRef<HTMLInputElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   // Auto-focus first input and lock scroll
   useEffect(() => {
@@ -46,8 +47,11 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      onClick={onClose}
     >
       <motion.div
+        ref={modalRef}
+        onClick={(e) => e.stopPropagation()}
         className="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-md relative"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -74,7 +78,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
             animate="show"
             variants={fadeUp}
           >
-            ✅ Thanks for your message! We&apos;ll contact you shortly.
+            Thanks for your message! We&apos;ll contact you shortly.
           </motion.p>
         ) : (
           <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
@@ -128,14 +132,14 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
               <Button
                 type="submit"
                 disabled={state.submitting}
-                className="px-6 py-2 bg-[#010066] text-white rounded-lg hover:bg-blue-700 transition-all"
+                className="px-6 py-2 bg-[#010066] text-white hover:opacity-90 rounded-lg transition-all"
               >
                 {state.submitting ? "Sending..." : "Send Message"}
               </Button>
               <Button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-all"
+                className="px-6 py-2 text-white "
               >
                 Cancel
               </Button>

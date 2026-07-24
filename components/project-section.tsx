@@ -54,7 +54,7 @@ const card = {
 
 const ProjectsSection = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-13 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

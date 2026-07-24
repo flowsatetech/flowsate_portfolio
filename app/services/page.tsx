@@ -11,7 +11,7 @@ import React from "react";
 
 const Services = () => {
   return (
-    <div>
+    <div className="relative overflow-hidden">
       <div className="w-full h-[30vh] sm:h-[50vh] md:h-screen">
         <BackgroundSlider />
       </div>

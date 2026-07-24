@@ -276,7 +276,7 @@ export default function QuoteModal({
             <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full sm:w-44 h-12 bg-[#192C4F] hover:bg-[#16355F]"
+                className="w-full sm:w-44 h-12 bg-[#010066] text-white hover:opacity-90"
                 >
                 {submitting ? "Submitting..." : "Submit Quote Request"}
             </Button>

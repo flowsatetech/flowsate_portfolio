@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const ClientCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 py-10">
       {clientCard.map((client, index) => {
         return (
           <Card key={index} className="w-full max-w-sm border-[#5BA0D7] flex flex-col">

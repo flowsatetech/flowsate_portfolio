@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const ContactUs = () => {
@@ -16,6 +16,7 @@ const ContactUs = () => {
   });
 
   const [messageLength, setMessageLength] = useState(0);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     if (state.succeeded && formRef.current) {
@@ -29,6 +30,8 @@ const ContactUs = () => {
       });
 
       setMessageLength(0);
+
+      setShowSuccessModal(true);
     }
   }, [state.succeeded]);
 
@@ -198,7 +201,7 @@ const ContactUs = () => {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="text-3xl font-bold mb-6"
+            className="text-3xl font-bold mb-6 text-black opacity-100 block"
           >
             Reach out today and let&apos;s have a conversation!
           </motion.h1>
@@ -211,12 +214,6 @@ const ContactUs = () => {
           >
             Your questions, feedback, or ideas are always welcome
           </motion.p>
-
-          {state.succeeded && (
-            <p className="text-green-600 mb-6">
-              Your message is on its way to us thank you!
-            </p>
-          )}
 
           <motion.form
             ref={formRef}
@@ -233,7 +230,7 @@ const ContactUs = () => {
             <motion.div variants={fadeLeft}>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium mb-1"
+                className="block mb-1 text-sm font-medium text-gray-900 opacity-100"
               >
                 Name
               </label>
@@ -247,12 +244,10 @@ const ContactUs = () => {
                 onChange={handleInput}
                 title="Only letters allowed"
                 required
-                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors.name
-                    ? "border-red-500"
-                    : ""
+                className={`w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors.name ? "border-red-500" : ""
                 }`}
-              />
+                              />
 
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">
@@ -272,7 +267,7 @@ const ContactUs = () => {
             <motion.div variants={fadeRight}>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium mb-1"
+                className="block mb-1 text-sm font-medium text-gray-900"
               >
                 Email
               </label>
@@ -285,7 +280,7 @@ const ContactUs = () => {
                 onChange={handleInput}
                 title="Enter valid email"
                 required
-                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   errors.email
                     ? "border-red-500"
                     : ""
@@ -310,7 +305,7 @@ const ContactUs = () => {
             <motion.div variants={fadeUp}>
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium mb-1"
+                className="block mb-1 text-sm font-medium text-gray-900"
               >
                 Phone Number
               </label>
@@ -322,7 +317,7 @@ const ContactUs = () => {
                 onChange={handleInput}
                 placeholder="+234123456789"
                 title="Include country code if needed"
-                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   errors.phone
                     ? "border-red-500"
                     : ""
@@ -341,7 +336,7 @@ const ContactUs = () => {
             <motion.div variants={fadeLeft}>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium mb-1"
+                className="block mb-1 text-sm font-medium text-gray-900"
               >
                 Comment or Message
               </label>
@@ -356,7 +351,7 @@ const ContactUs = () => {
                 onChange={handleInput}
                 title="Minimum 10 characters"
                 required
-                className={`w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   errors.message
                     ? "border-red-500"
                     : ""
@@ -578,6 +573,63 @@ const ContactUs = () => {
           </div>
         </motion.div>
       </section>
+
+      <AnimatePresence>
+        {showSuccessModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+            onClick={() => setShowSuccessModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 40 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl text-center"
+            >
+              {/* Success Icon */}
+              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+                <svg
+                  className="h-10 w-10 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+
+              <h2 className="text-2xl font-bold text-gray-900">
+                Message Sent!
+              </h2>
+
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Thank you for reaching out to us.
+                <br />
+                We have received your message and one of our team members
+                will get back to you as soon as possible.
+              </p>
+
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="mt-8 w-full rounded-lg bg-[#010066] py-3 text-white font-medium transition hover:opacity-90"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </main>
   );
 };

@@ -16,7 +16,7 @@ const JoinTeam = () => {
   };
 
   return (
-    <section className="relative py-20 px-6 text-center text-white">
+    <section className="relative py-10 px-6 text-center text-white">
       <div className="absolute inset-0 bg-[#4579A4] opacity-90"></div>
 
       <div className="relative z-10 flex flex-col items-center max-w-3xl mx-auto">
@@ -31,11 +31,11 @@ const JoinTeam = () => {
         </p>
 
         <Button
-          variant="outline"
-          className="border-white text-black hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg"
+          type="button"
+          className="text-white bg-[#010066] hover:bg-[#414141] cursor-pointer"
           onClick={openForm}
         >
-          Apply Now →
+          Explore Careers →
         </Button>
       </div>
 

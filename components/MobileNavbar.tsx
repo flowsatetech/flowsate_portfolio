@@ -55,7 +55,7 @@ const MobileNav = () => {
               variant="default"
               className="w-full text-white bg-[#010066] hover:bg-[#414141]"
             >
-              Get Started
+              Let&apos;s Talk
             </Button>
           </div>
         </div>
