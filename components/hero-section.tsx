@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 const HeroSection = () => {
   return (
-    <section className="relative py-24 px-6 lg:px-12 bg-gradient-to-tl from-[#e3e7ff] via-[#f4f6ff] to-[#f9faff] overflow-hidden">
+    <section className="relative py-13 px-6 lg:px-12 bg-gradient-to-tl from-[#e3e7ff] via-[#f4f6ff] to-[#f9faff] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left side - Text */}
@@ -21,24 +21,24 @@ const HeroSection = () => {
             <span className="text-[#010066] block">businesses trust.</span>
           </h1>
 
-          <div className="flex flex-row gap-4 mt-10">
+          <div className="flex flex-row gap-5 mt-10">
 
             <Button
               asChild
-              className="bg-[#010066] text-white hover:bg-[#010066] px-8 py-4 rounded-lg transition-all duration-300"
+              className="px-8 py-4 text-white bg-[#010066] hover:bg-[#414141]"
             >
               <Link href="/contact">
-                Get Started
+                Start Your Project
               </Link>
             </Button>
 
             <Button
               variant="outline"
               asChild
-              className="border-[#010066] text-[#010066] hover:bg-[#010066] hover:text-white px-8 py-4 rounded-lg transition-all duration-300"
+              className="border-2 border-[#010066] bg-transparent text-[#010066] hover:bg-[#010066] hover:text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg transition-all duration-300 cursor-pointer"
             >
               <Link href="/services">
-                Learn More
+                Explore Solutions
               </Link>
             </Button>
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const AboutStory = () => (
-  <section className="relative flex justify-center py-20 px-6 bg-gray-50">
+  <section className="relative flex justify-center py-13 px-6 bg-gray-50">
     <div className="relative w-full max-w-6xl rounded-md overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 opacity-40">

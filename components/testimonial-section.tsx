@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import emmanuel from "@/public/images/emmanuel.webp"
 import martha from "@/public/images/martha.webp"
@@ -41,7 +42,7 @@ const TestimonialsSection = () => {
   }
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-13 px-6 bg-white">
       <motion.h2
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -100,22 +101,24 @@ const TestimonialsSection = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Buttons */}
-          <div className="mt-6 flex gap-4">
-            <button
-              onClick={prevTestimonial}
-              className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
-            >
-              ←
-            </button>
+        {/* Navigation */}
+        <div className="mt-8 flex items-center justify-between w-full">
+          <button
+            onClick={prevTestimonial}
+            aria-label="Previous testimonial"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-300 hover:bg-white hover:text-[#010066]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
 
-            <button
-              onClick={nextTestimonial}
-              className="bg-gray-400 hover:bg-blue-800 w-7 h-7 flex items-center justify-center rounded-full transition"
-            >
-              →
-            </button>
-          </div>
+          <button
+            onClick={nextTestimonial}
+            aria-label="Next testimonial"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-300 hover:bg-white hover:text-[#010066]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
         </div>
       </motion.div>
     </section>

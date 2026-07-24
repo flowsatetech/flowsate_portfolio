@@ -112,7 +112,7 @@ const ContactSection = () => {
   }, [state.succeeded]);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-13 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-3xl mx-auto">
 
         <motion.h2
@@ -124,14 +124,14 @@ const ContactSection = () => {
           Contact Us
         </motion.h2>
 
-        <motion.form
+       <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
           noValidate
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="space-y-8"
+          className="space-y-8 border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm bg-white"
         >
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -294,7 +294,7 @@ const ContactSection = () => {
             />
           </div>
 
-          <div className="text-center">
+          <div className="flex justify-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -305,7 +305,7 @@ const ContactSection = () => {
                   state.submitting ||
                   Object.values(errors).some(Boolean)
                 }
-                className="px-10 py-3 bg-[#010066] text-white hover:bg-[#010066] shadow-md"
+                 className="w-full sm:w-64 h-12 text-base font-medium text-white bg-[#010066] hover:bg-[#414141] shadow-md transition-all duration-300 cursor-pointer"
               >
                 {state.submitting ? "Sending..." : "Submit"}
               </Button>

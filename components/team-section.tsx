@@ -14,7 +14,7 @@ const teamMembers = [
 ];
 
 const TeamSection = () => (
-  <section className="py-20 px-6 bg-gray-50">
+  <section className="py-10 px-6 bg-gray-50">
     <h2 className="text-3xl font-semibold text-gray-800 text-center mb-4">
       The Team
     </h2>

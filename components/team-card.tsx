@@ -12,7 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const TeamCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
       {teamCard.map((team, index) => {
         return (
           <Card key={index} className="w-full max-w-sm h-full flex flex-col border-[#5BA0D7]">

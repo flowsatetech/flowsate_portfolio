@@ -12,7 +12,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className="py-6 xl:py-8 bg-white shadow-md">
+    <header className="fixed inset-x-0 top-0 z-50 py-6 xl:py-8 bg-white shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex-shrink-0">
           <div className="text-2xl md:text-3xl font-bold text-[#010066]">
@@ -26,10 +26,10 @@ const Header = () => {
 
         <div className="hidden md:block">
           <Button
-            className="text-white bg-[#010066] hover:bg-[#414141]"
+            className="text-white bg-[#010066] hover:bg-[#414141] cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
-            Get Started
+            Let&apos;s Talk
           </Button>
         </div>
 

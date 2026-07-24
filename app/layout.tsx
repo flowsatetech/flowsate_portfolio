@@ -73,7 +73,11 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-NKLFDPVC" />
 
         <Header />
-        {children}
+
+        <main className="min-h-screen pt-28 xl:pt-32">   {/* ← Added this */}
+          {children}
+        </main>
+
         <Footer />
         <Toaster />
       </body>

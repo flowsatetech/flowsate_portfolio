@@ -109,7 +109,7 @@ const Portfolio = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-end w-full md:w-auto">
            <Link href="/contact">
               <Button
-                  className="bg-[#010066] text-white text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+                  className="bg-[#010066] hover:bg-[#414141] text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
               >
                   Start Your Project
               </Button>
@@ -117,9 +117,9 @@ const Portfolio = () => {
 
             <Link href="/services">
               <Button
-                  className="bg-[#e6e6e6] text-[#010066] text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+                  className="border-2 border-[#010066] bg-transparent text-[#010066] hover:bg-[#010066] hover:text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg transition-all duration-300 cursor-pointer"
               >
-                  Our Services
+                Explore Our Services
               </Button>
             </Link>
           </div>
