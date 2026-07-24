@@ -1,9 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react"; // icons
+
+interface MobileNavProps {
+  onLetsTalk: () => void;
+}
 
 const links = [
   { name: "Home", href: "/" },
@@ -13,12 +17,33 @@ const links = [
   { name: "Contact", href: "/contact" },
 ];
 
-const MobileNav = () => {
+const MobileNav = ({ onLetsTalk }: MobileNavProps) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <Button
         onClick={() => setOpen(!open)}
         variant="ghost"
@@ -54,6 +79,10 @@ const MobileNav = () => {
             <Button
               variant="default"
               className="w-full text-white bg-[#010066] hover:bg-[#414141]"
+              onClick={() => {
+                setOpen(false);
+                onLetsTalk();
+              }}
             >
               Let&apos;s Talk
             </Button>

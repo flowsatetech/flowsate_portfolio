@@ -34,7 +34,7 @@ const Header = () => {
         </div>
 
         <div className="md:hidden relative z-50">
-          <MobileNavbar />
+          <MobileNavbar onLetsTalk={() => setIsModalOpen(true)} />
         </div>
       </div>
 
