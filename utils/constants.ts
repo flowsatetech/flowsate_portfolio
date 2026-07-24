@@ -3,7 +3,7 @@
 export const portfolioItems = [
   {
     image: "/images/kyrian-tech.png",
-    title: "Potion",
+    title: "E-commence",
     description: "Transforming home Healthcare",
     date: "2025",
     link: "https://kyriantech.net",
@@ -11,7 +11,7 @@ export const portfolioItems = [
   },
 
   {
-    image: "/images/project.png",
+    image: "/images/project.webp",
     title: "Finance App",
     description: "Mobile financial platform",
     date: "2026",
